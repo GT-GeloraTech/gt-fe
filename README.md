@@ -1,162 +1,36 @@
-# 🚀 Gelora Tech
-### Build Smart Solutions
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
----
+## Getting Started
 
-## 💼 Services We Offer
+First, run the development server:
 
-### 1. Web Development
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-* Business websites
-* Landing pages
-* E-commerce solutions
-* SEO basics
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### 2. App Development
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-* Android & iOS apps
-* Cross-platform apps
-* Admin dashboards
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-### 3. Cloud Services
+## Learn More
 
-* AWS / GCP setup
-* Deployment & hosting
-* Cost optimization
+To learn more about Next.js, take a look at the following resources:
 
-### 4. AI & Automation
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-* Chatbots (Web / WhatsApp)
-* Workflow automation
-* Custom AI tools
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-### 5. Cybersecurity
+## Deploy on Vercel
 
-* Security audits
-* Vulnerability testing
-* SSL & firewall setup
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-### 6. DevOps & CI/CD
-
-* CI/CD pipelines
-* Docker setup
-* Monitoring & logging
-
-### 7. SaaS / MVP Development
-
-* Startup MVPs
-* Subscription systems
-* Scalable architecture
-
-### 8. IT Consulting
-
-* Tech stack planning
-* System architecture
-* Process automation
-
-### 9. Data & Analytics
-
-* Dashboards
-* Data pipelines
-* Business insights
-
-### 10. API Development
-
-* Payment integrations
-* CRM / ERP integrations
-* Custom APIs
-
----
-
-## 🛠️ Tech Stack
-
-### Core
-
-* TypeScript
-* JavaScript
-* Python
-
-### Frontend
-
-* React
-* Next.js
-
-### Backend
-
-* Node.js
-* NestJS
-* FastAPI
-
-### Mobile
-
-* Flutter
-
-### Cloud
-
-* AWS
-* GCP
-
-### Database
-
-* PostgreSQL
-* MongoDB
-
-### DevOps
-
-* Docker
-* CI/CD
-
-### AI
-
-* AI/ML
-
----
-
-## 📚 Extended Stack (Internal Reference)
-
-* Vue.js, Tailwind CSS
-* Flask, .NET, Java
-* MySQL, SQLite, Firebase, Supabase
-* RabbitMQ
-* Nginx, GitHub, Azure, DigitalOcean
-* Grafana, Google Analytics
-* JWT, OAuth, Firebase Auth
-* LangChain, TensorFlow, PyTorch
-
----
-
-## ⚙️ How We Work
-
-1. Requirement Discussion
-2. Proposal & Planning
-3. Development
-4. Testing & Delivery
-
----
-
-## 🎯 Strategy
-
-### Phase 1
-
-* Local businesses + small startups
-* Build portfolio
-
-### Phase 2
-
-* Focus on startups
-* MVP & SaaS projects
-
-### Phase 3
-
-* Expand to international clients
-
----
-
-## 📞 Contact
-
-* Email: [hello@geloratech.com](mailto:hello@geloratech.com)
-* Phone: +91-8233662031, +91-8219601611
-
----
-
-⭐ Build Smart Solutions with Gelora Tech
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
