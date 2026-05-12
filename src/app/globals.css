@@ -39,18 +39,15 @@ html {
 
 body {
   width: 100%;
-
   overflow-x: hidden;
 
   background:
     linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    radial-gradient(circle at top, #4a2553 0%, #2a0f2f 60%);
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px), #2a0f2f;
 
   background-size:
     60px 60px,
-    60px 60px,
-    cover;
+    60px 60px;
 
   color: var(--foreground);
 
@@ -165,4 +162,17 @@ section {
 
 .premium-shadow {
   box-shadow: 0 0 40px rgba(212, 176, 106, 0.12);
+}
+
+.noise {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.03;
+
+  background-image: radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px);
+
+  background-size: 4px 4px;
+
+  pointer-events: none;
 }
