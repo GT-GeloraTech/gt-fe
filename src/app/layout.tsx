@@ -38,6 +38,12 @@ export const metadata: Metadata = {
     "IT Solutions",
   ],
 
+  icons: {
+    icon: "/fav_icon.svg",
+    shortcut: "/fav_icon.svg",
+    apple: "/apple-touch-icon.png",
+  },
+
   openGraph: {
     type: "website",
     siteName: siteConfig.name,

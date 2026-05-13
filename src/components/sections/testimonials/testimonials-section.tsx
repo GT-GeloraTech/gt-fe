@@ -26,82 +26,79 @@ export function TestimonialsSection() {
         </Reveal>
 
         {/* Cards */}
-        <div className="grid gap-6 lg:grid-cols-3">
-          {testimonials.map((testimonial, index) => (
-            <Reveal key={testimonial.name} delay={index * 0.08}>
+        <div className="relative overflow-hidden py-6">
+          {/* Left Fade */}
+          <div className="pointer-events-none absolute top-0 left-0 z-10 h-full w-32 bg-gradient-to-r from-[#2a0d35] to-transparent" />
+
+          {/* Right Fade */}
+          <div className="pointer-events-none absolute top-0 right-0 z-10 h-full w-32 bg-gradient-to-l from-[#2a0d35] to-transparent" />
+
+          <motion.div
+            className="flex items-stretch gap-6"
+            animate={{
+              x: ["0%", "-50%"],
+            }}
+            transition={{
+              duration: 28,
+              ease: "linear",
+              repeat: Infinity,
+            }}
+          >
+            {[...testimonials, ...testimonials].map((testimonial, index) => (
               <motion.div
+                key={index}
                 whileHover={{
-                  y: -5,
+                  y: -6,
+                  scale: 1.025,
                 }}
                 transition={{
                   duration: 0.45,
-                  ease: [0.16, 1, 0.3, 1] as const,
+                  ease: [0.16, 1, 0.3, 1],
                 }}
+                className="w-[420px] flex-shrink-0"
               >
-                <Card className="group relative overflow-hidden rounded-[28px] border border-[#d4b06a]/15 bg-[#3a173f]/85 p-8 transition-all duration-500 hover:border-[#d4b06a]/30 hover:shadow-[0_0_40px_rgba(212,176,106,0.10)]">
-                  {/* Glow */}
-                  <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                    <div className="absolute top-0 left-1/2 h-32 w-32 -translate-x-1/2 rounded-full bg-[#d4b06a]/10 blur-3xl" />
+                <Card className="group relative flex h-[320px] flex-col justify-between overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl transition-all duration-500 hover:-translate-y-0.5 hover:border-[#d4b06a]/50 hover:bg-white/[0.06] hover:shadow-[0_25px_80px_rgba(212,176,106,0.18)]">
+                  <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                    <div className="absolute -top-20 left-1/2 h-56 w-56 -translate-x-1/2 rounded-full bg-[#d4b06a]/15 blur-3xl" />
+                  </div>
+                  {/* Quote */}
+                  <motion.div
+                    whileHover={{
+                      rotate: 12,
+                      scale: 1.15,
+                    }}
+                    transition={{
+                      duration: 0.35,
+                    }}
+                  >
+                    <Quote className="absolute top-6 right-6 h-10 w-10 text-[#d4b06a]/20 transition-colors duration-300 group-hover:text-[#d4b06a]/40" />
+                  </motion.div>
+
+                  {/* Stars */}
+                  <div className="flex items-center gap-1">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <Star key={star} className="h-4 w-4 fill-[#d4b06a] text-[#d4b06a]" />
+                    ))}
                   </div>
 
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] to-transparent opacity-60" />
-
                   {/* Content */}
-                  <div className="relative z-10">
-                    {/* Top */}
-                    <div className="flex items-start justify-between">
-                      {/* Stars */}
-                      <div className="flex items-center gap-1">
-                        {[1, 2, 3, 4, 5].map((star) => (
-                          <motion.div
-                            key={star}
-                            whileHover={{
-                              scale: 1.1,
-                            }}
-                            transition={{
-                              duration: 0.2,
-                            }}
-                          >
-                            <Star className="h-4 w-4 fill-[#d4b06a] text-[#d4b06a]" />
-                          </motion.div>
-                        ))}
-                      </div>
+                  <p className="mt-6 line-clamp-4 text-[16px] leading-8 text-zinc-300">
+                    “{testimonial.content}”
+                  </p>
 
-                      {/* Quote */}
-                      <motion.div
-                        whileHover={{
-                          rotate: 8,
-                          scale: 1.05,
-                        }}
-                        transition={{
-                          duration: 0.3,
-                          ease: [0.16, 1, 0.3, 1] as const,
-                        }}
-                      >
-                        <Quote className="h-10 w-10 text-[#d4b06a]/25" strokeWidth={2.5} />
-                      </motion.div>
-                    </div>
+                  {/* Divider */}
+                  <div className="my-6 h-px bg-white/10" />
 
-                    {/* Content */}
-                    <p className="mt-4 min-h-[70px] text-[17px] leading-[2] text-zinc-300 italic">
-                      &ldquo;{testimonial.content}&rdquo;
-                    </p>
+                  {/* Author */}
+                  <div>
+                    <h4 className="text-lg font-semibold text-white">{testimonial.name}</h4>
 
-                    {/* Divider */}
-                    <div className="my-5 h-px bg-[#d4b06a]/12" />
-
-                    {/* Author */}
-                    <div>
-                      <h4 className="text-[18px] font-bold text-white">{testimonial.name}</h4>
-
-                      <p className="mt-2 text-[14px] text-[#d4b06a]">{testimonial.role}</p>
-                    </div>
+                    <p className="mt-1 text-sm text-[#d4b06a]">{testimonial.role}</p>
                   </div>
                 </Card>
               </motion.div>
-            </Reveal>
-          ))}
+            ))}
+          </motion.div>
         </div>
       </Container>
     </section>
