@@ -7,8 +7,110 @@ import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { Reveal } from "@/components/common/reveal/reveal";
 import { Container } from "@/components/common/container";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 export function ContactSection() {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    company: "",
+    message: "",
+  });
+
+  const [errors, setErrors] = useState({
+    fullName: "",
+    email: "",
+    company: "",
+    message: "",
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const validateForm = () => {
+    const newErrors = {
+      fullName: "",
+      email: "",
+      company: "",
+      message: "",
+    };
+
+    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+
+    const fullName = formData.fullName;
+
+    if (!fullName.trim()) {
+      newErrors.fullName = "Full name is required";
+    } else if (fullName.startsWith(" ")) {
+      newErrors.fullName = "Name cannot start with a space";
+    } else if (fullName.trim().length < 2) {
+      newErrors.fullName = "Name must be at least 2 characters";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = "Enter a valid email";
+    }
+
+    if (formData.company.length > 80) {
+      newErrors.company = "Company name is too long";
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+    } else if (formData.message.trim().length < 15) {
+      newErrors.message = "Message should be at least 15 characters";
+    }
+
+    setErrors(newErrors);
+
+    return !Object.values(newErrors).some(Boolean);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+
+    const updatedValue = value;
+
+    if (name === "fullName") {
+      // Prevent first character from being space
+      if (value.startsWith(" ")) {
+        setErrors((prev) => ({
+          ...prev,
+          fullName: "Name cannot start with a space",
+        }));
+
+        return;
+      }
+    }
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: updatedValue,
+    }));
+
+    setErrors((prev) => ({
+      ...prev,
+      [name]: "",
+    }));
+  };
+
+  const handleSubmit = async () => {
+    if (!validateForm()) return;
+
+    try {
+      setIsSubmitting(true);
+
+      console.log(formData);
+
+      // API call here
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-28">
       <Container className="max-w-[1400px]">
@@ -145,9 +247,55 @@ export function ContactSection() {
                         duration: 0.25,
                       }}
                       type={field.type}
+                      name={
+                        field.label === "Full Name"
+                          ? "fullName"
+                          : field.label === "Email Address"
+                            ? "email"
+                            : "company"
+                      }
+                      value={
+                        field.label === "Full Name"
+                          ? formData.fullName
+                          : field.label === "Email Address"
+                            ? formData.email
+                            : formData.company
+                      }
+                      onChange={handleChange}
+                      autoComplete={
+                        field.label === "Full Name"
+                          ? "name"
+                          : field.label === "Email Address"
+                            ? "email"
+                            : "organization"
+                      }
+                      maxLength={
+                        field.label === "Full Name"
+                          ? 60
+                          : field.label === "Company"
+                            ? 80
+                            : undefined
+                      }
                       placeholder={field.placeholder}
-                      className="h-14 w-full rounded-2xl border border-[#d4b06a]/12 bg-[#4a2553]/40 px-5 text-[16px] text-white transition-all duration-300 outline-none placeholder:text-zinc-500 focus:border-[#d4b06a]/35 focus:bg-[#4a2553]/60"
+                      className={`h-14 w-full rounded-2xl border bg-[#4a2553]/40 px-5 text-[16px] text-white transition-all duration-300 outline-none placeholder:text-zinc-500 focus:bg-[#4a2553]/60 ${
+                        (field.label === "Full Name" && errors.fullName) ||
+                        (field.label === "Email Address" && errors.email) ||
+                        (field.label === "Company" && errors.company)
+                          ? "border-red-500/60 focus:border-red-500"
+                          : "border-[#d4b06a]/12 focus:border-[#d4b06a]/35"
+                      }`}
                     />
+                    {field.label === "Full Name" && errors.fullName && (
+                      <p className="mt-2 text-sm text-red-400">{errors.fullName}</p>
+                    )}
+
+                    {field.label === "Email Address" && errors.email && (
+                      <p className="mt-2 text-sm text-red-400">{errors.email}</p>
+                    )}
+
+                    {field.label === "Company" && errors.company && (
+                      <p className="mt-2 text-sm text-red-400">{errors.company}</p>
+                    )}
                   </div>
                 </Reveal>
               ))}
@@ -160,6 +308,9 @@ export function ContactSection() {
                   </label>
 
                   <motion.textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     whileFocus={{
                       scale: 1.01,
                     }}
@@ -168,8 +319,13 @@ export function ContactSection() {
                     }}
                     rows={5}
                     placeholder="Tell us about your project..."
-                    className="w-full rounded-2xl border border-[#d4b06a]/12 bg-[#4a2553]/40 px-5 py-4 text-[16px] text-white transition-all duration-300 outline-none placeholder:text-zinc-500 focus:border-[#d4b06a]/35 focus:bg-[#4a2553]/60"
+                    className={`w-full rounded-2xl border bg-[#4a2553]/40 px-5 py-4 text-[16px] text-white transition-all duration-300 outline-none placeholder:text-zinc-500 focus:bg-[#4a2553]/60 ${
+                      errors.message
+                        ? "border-red-500/60 focus:border-red-500"
+                        : "border-[#d4b06a]/12 focus:border-[#d4b06a]/35"
+                    }`}
                   />
+                  {errors.message && <p className="mt-2 text-sm text-red-400">{errors.message}</p>}
                 </div>
               </Reveal>
 
@@ -187,9 +343,13 @@ export function ContactSection() {
                     ease: [0.16, 1, 0.3, 1] as const,
                   }}
                 >
-                  <Button className="mt-2 h-14 w-full rounded-2xl bg-[#d4b06a] text-[17px] font-semibold text-black transition-all duration-300 hover:bg-[#ddbc79] hover:shadow-[0_10px_30px_rgba(212,176,106,0.25)]">
+                  <Button
+                    onClick={handleSubmit}
+                    disabled={isSubmitting}
+                    className="mt-2 h-14 w-full rounded-2xl bg-[#d4b06a] text-[17px] font-semibold text-black transition-all duration-300 hover:bg-[#ddbc79] hover:shadow-[0_10px_30px_rgba(212,176,106,0.25)] disabled:cursor-not-allowed disabled:opacity-70"
+                  >
                     <span className="flex items-center gap-2">
-                      Send Message
+                      {isSubmitting ? "Sending..." : "Send Message"}
                       <motion.div
                         whileHover={{
                           x: 2,

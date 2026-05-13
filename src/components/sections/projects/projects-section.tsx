@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import Image from "next/image";
 
+import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
 import { projects } from "@/constants/projects";
@@ -42,50 +43,49 @@ export function ProjectsSection() {
               >
                 <Card className="group relative overflow-hidden rounded-[28px] border border-[#d4b06a]/15 bg-[#3a173f]/90 p-0 transition-all duration-500 hover:border-[#d4b06a]/35 hover:shadow-[0_0_40px_rgba(212,176,106,0.12)]">
                   {/* Top Visual */}
-                  <div className="relative flex h-[190px] items-center justify-center overflow-hidden border-b border-[#d4b06a]/10 bg-gradient-to-br from-[#8a6b6f]/70 via-[#6d4b62]/55 to-[#3d1a43]">
-                    {/* Grid Overlay */}
+                  {/* Top Visual */}
+                  <div className="relative h-[240px] overflow-hidden border-b border-[#d4b06a]/10 bg-[#2a0f2f]">
+                    {/* Image */}
                     <motion.div
-                      className="absolute inset-0 opacity-30"
-                      style={{
-                        backgroundImage: `
-                          linear-gradient(rgba(212,176,106,0.12) 1px, transparent 1px),
-                          linear-gradient(90deg, rgba(212,176,106,0.12) 1px, transparent 1px)
-                        `,
-                        backgroundSize: "22px 22px",
-                      }}
                       whileHover={{
-                        scale: 1.03,
+                        scale: 1.04,
                       }}
                       transition={{
-                        duration: 0.8,
+                        duration: 0.7,
                         ease: [0.16, 1, 0.3, 1] as const,
+                      }}
+                      className="absolute inset-0"
+                    >
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        priority
+                        className="object-cover object-center"
+                      />
+                    </motion.div>
+
+                    {/* Dark Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1f0c24]/85 via-[#1f0c24]/20 to-transparent" />
+
+                    {/* Grid Overlay */}
+                    <div
+                      className="absolute inset-0 opacity-20"
+                      style={{
+                        backgroundImage: `
+        linear-gradient(rgba(212,176,106,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212,176,106,0.08) 1px, transparent 1px)
+      `,
+                        backgroundSize: "22px 22px",
                       }}
                     />
 
-                    {/* Glow */}
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,176,106,0.18),transparent_70%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-
-                    {/* Floating Light */}
-                    <div className="absolute top-0 left-1/2 h-32 w-32 -translate-x-1/2 rounded-full bg-[#d4b06a]/10 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
-
-                    {/* Hover Icon */}
-                    <motion.div
-                      initial={{
-                        opacity: 0,
-                        scale: 0.8,
-                      }}
-                      whileHover={{
-                        opacity: 1,
-                        scale: 1,
-                      }}
-                      transition={{
-                        duration: 0.35,
-                        ease: [0.16, 1, 0.3, 1] as const,
-                      }}
-                      className="z-10 flex h-14 w-14 items-center justify-center rounded-full bg-[#d4b06a] text-black"
-                    >
-                      <ArrowUpRight className="h-6 w-6" />
-                    </motion.div>
+                    {/* Hover Button */}
+                    <div className="absolute inset-0 z-10 flex items-center justify-center opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#d4b06a] text-black shadow-2xl">
+                        <ArrowUpRight className="h-6 w-6" />
+                      </div>
+                    </div>
                   </div>
 
                   {/* Bottom Content */}

@@ -4,7 +4,8 @@ import Link from "next/link";
 
 import { motion } from "framer-motion";
 
-import { Globe, Link as LinkIcon, Mail, Phone } from "lucide-react";
+import { Globe, Instagram, Twitter, Linkedin, Github } from "lucide-react";
+import Image from "next/image";
 
 import { navigation } from "@/constants/navigation";
 
@@ -26,18 +27,25 @@ export function Footer() {
               <div className="flex items-center gap-4">
                 <motion.div
                   whileHover={{
-                    scale: 1.05,
+                    scale: 1.03,
+                    y: -1,
                   }}
                   transition={{
-                    duration: 0.3,
+                    duration: 0.35,
                     ease: [0.16, 1, 0.3, 1] as const,
                   }}
-                  className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#d4b06a] text-sm font-black text-black"
+                  className="flex items-center gap-3"
                 >
-                  GT
+                  <div className="relative h-22 w-43 overflow-hidden rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm">
+                    <Image
+                      src="/logo.png"
+                      alt="Gelora Tech"
+                      fill
+                      className="object-contain"
+                      priority
+                    />
+                  </div>
                 </motion.div>
-
-                <h3 className="text-[22px] font-bold text-white">Gelora Tech</h3>
               </div>
 
               <p className="mt-6 max-w-sm text-[15px] leading-7 text-zinc-400">
@@ -46,24 +54,49 @@ export function Footer() {
 
               {/* Social */}
               <div className="mt-8 flex items-center gap-4">
-                {[Globe, LinkIcon, Mail, Phone].map((Icon, index) => (
-                  <motion.button
-                    key={index}
-                    whileHover={{
-                      y: -3,
-                    }}
-                    whileTap={{
-                      scale: 0.96,
-                    }}
-                    transition={{
-                      duration: 0.3,
-                      ease: [0.16, 1, 0.3, 1] as const,
-                    }}
-                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#d4b06a]/15 bg-[#3a173f]/60 text-[#d4b06a] transition-all duration-500 hover:border-[#d4b06a]/35 hover:bg-[#d4b06a]/10 hover:shadow-[0_0_20px_rgba(212,176,106,0.12)]"
-                  >
-                    <Icon className="h-4 w-4" />
-                  </motion.button>
-                ))}
+                {[
+                  {
+                    icon: Instagram,
+                    href: "https://www.instagram.com/geloratech/",
+                  },
+                  {
+                    icon: Twitter,
+                    href: "https://x.com/GeloraTech",
+                  },
+                  {
+                    icon: Linkedin,
+                    href: "https://linkedin.com/company/yourcompany",
+                  },
+                  {
+                    icon: Github,
+                    href: "https://github.com/yourusername",
+                  },
+                ].map((item, index) => {
+                  const Icon = item.icon;
+
+                  return (
+                    <motion.a
+                      key={index}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{
+                        y: -4,
+                        scale: 1.06,
+                      }}
+                      whileTap={{
+                        scale: 0.94,
+                      }}
+                      transition={{
+                        duration: 0.3,
+                        ease: [0.16, 1, 0.3, 1] as const,
+                      }}
+                      className="group flex h-11 w-11 items-center justify-center rounded-2xl border border-[#d4b06a]/15 bg-[#3a173f]/60 text-[#d4b06a] backdrop-blur-sm transition-all duration-500 hover:border-[#d4b06a]/40 hover:bg-[#d4b06a]/10 hover:shadow-[0_0_30px_rgba(212,176,106,0.18)]"
+                    >
+                      <Icon className="h-[18px] w-[18px] transition-transform duration-300 group-hover:scale-110" />
+                    </motion.a>
+                  );
+                })}
               </div>
             </div>
           </Reveal>
@@ -202,19 +235,36 @@ export function Footer() {
             <p className="text-[14px] text-zinc-500">© 2026 Gelora Tech. All rights reserved.</p>
 
             <div className="flex items-center gap-8">
-              {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((item) => (
-                <motion.button
-                  key={item}
+              {[
+                {
+                  label: "Privacy Policy",
+                  href: "/privacy",
+                },
+                {
+                  label: "Terms of Service",
+                  href: "/terms",
+                },
+                {
+                  label: "Cookie Policy",
+                  href: "/cookie",
+                },
+              ].map((item) => (
+                <motion.div
+                  key={item.label}
                   whileHover={{
                     y: -1,
                   }}
                   transition={{
                     duration: 0.2,
                   }}
-                  className="text-[14px] text-zinc-500 transition-colors duration-300 hover:text-[#d4b06a]"
                 >
-                  {item}
-                </motion.button>
+                  <Link
+                    href={item.href}
+                    className="text-[14px] text-zinc-500 transition-colors duration-300 hover:text-[#d4b06a]"
+                  >
+                    {item.label}
+                  </Link>
+                </motion.div>
               ))}
             </div>
           </div>
