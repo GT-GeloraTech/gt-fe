@@ -10,27 +10,29 @@ export default function CookiesPolicyPage() {
 
       <main className="min-h-screen bg-[#35143d] pt-36 pb-28 text-white">
         <Container>
-          <div className="mx-auto max-w-3xl">
+          <div className="mx-auto max-w-4xl">
             {/* Header */}
             <div className="border-b border-white/10 pb-10">
               <p className="text-sm font-medium tracking-[0.18em] text-[#d4b06a] uppercase">
                 Legal
               </p>
 
-              <h1 className="mt-4 text-5xl leading-tight font-semibold tracking-tight">
+              <h1 className="mt-4 text-4xl leading-tight font-medium tracking-tight text-zinc-100">
                 Cookies Policy
               </h1>
             </div>
 
             {/* Content */}
-            <div className="mt-14 space-y-14 text-[16px] leading-8 text-zinc-400">
+            <div className="mt-14 space-y-16 text-[16px] leading-8 text-zinc-300">
               <section>
-                <h2 className="text-2xl font-semibold text-white">Cookies Policy — Gelora Tech</h2>
+                <h2 className="text-[20px] font-medium tracking-tight text-zinc-200">
+                  Cookies Policy — Gelora Tech
+                </h2>
 
                 <p className="mt-6">
-                  This Cookies Policy explains how Gelora Tech uses cookies, tracking technologies,
-                  and similar tools when you access or use our websites, applications, platforms,
-                  and related services.
+                  This Cookies Policy explains how<b> Gelora Tech </b> uses cookies, tracking
+                  technologies, and similar tools when you access or use our websites, applications,
+                  platforms, and related services.
                 </p>
 
                 <p className="mt-6">
@@ -77,9 +79,9 @@ export default function CookiesPolicyPage() {
                 </p>
 
                 <p className="mt-6">
-                  Gelora Tech is not responsible for the practices or policies of third-party
-                  providers. Users are encouraged to review third-party privacy and cookie policies
-                  separately.
+                  <b> Gelora Tech </b> is not responsible for the practices or policies of
+                  third-party providers. Users are encouraged to review third-party privacy and
+                  cookie policies separately.
                 </p>
               </PolicySection>
 
@@ -97,8 +99,8 @@ export default function CookiesPolicyPage() {
 
               <PolicySection title="6. Analytics & Tracking">
                 <p>
-                  Gelora Tech may use analytics or monitoring technologies to understand website
-                  usage, system performance, traffic trends, and technical diagnostics.
+                  <b> Gelora Tech </b> may use analytics or monitoring technologies to understand
+                  website usage, system performance, traffic trends, and technical diagnostics.
                 </p>
 
                 <p className="mt-6">
@@ -120,8 +122,8 @@ export default function CookiesPolicyPage() {
 
               <PolicySection title="8. Changes to This Cookies Policy">
                 <p>
-                  Gelora Tech reserves the right to modify or update this Cookies Policy at any time
-                  without prior notice.
+                  <b> Gelora Tech </b> reserves the right to modify or update this Cookies Policy at
+                  any time without prior notice.
                 </p>
 
                 <p className="mt-6">
@@ -148,10 +150,10 @@ export default function CookiesPolicyPage() {
 
 function PolicySection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="border-b border-white/8 pb-12">
-      <h2 className="text-[22px] font-semibold tracking-tight text-white">{title}</h2>
+    <section className="border-b border-white/6 pb-14">
+      <h2 className="text-[18px] font-medium tracking-tight text-zinc-200">{title}</h2>
 
-      <div className="mt-5 space-y-4 text-[16px] leading-8 text-zinc-400">{children}</div>
+      <div className="mt-5 space-y-5 text-[16px] leading-8 text-zinc-300">{children}</div>
     </section>
   );
 }

@@ -62,14 +62,14 @@ export default function PrivacyPolicyPage() {
                 style={{
                   willChange: "transform, opacity",
                 }}
-                className="mt-4 text-5xl leading-tight font-semibold tracking-tight"
+                className="mt-4 text-4xl leading-tight font-medium tracking-tight text-zinc-100"
               >
                 Privacy Policy
               </motion.h1>
             </motion.div>
 
             {/* Content */}
-            <div className="mt-14 space-y-14 text-[16px] leading-8 text-zinc-400">
+            <div className="mt-14 space-y-16 text-[16px] leading-8 text-zinc-300">
               <section>
                 <h2 className="text-2xl font-semibold text-white">Privacy Policy — Gelora Tech</h2>
 
@@ -99,7 +99,9 @@ export default function PrivacyPolicyPage() {
               </PolicySection>
 
               <PolicySection title="2. Scope of Services">
-                <p>Gelora Tech provides services including but not limited to:</p>
+                <p>
+                  <b>Gelora Tech</b> provides services including but not limited to:
+                </p>
 
                 <ul className="mt-5 ml-5 list-disc space-y-4 marker:text-zinc-500">
                   <li>Custom Software Development</li>
@@ -155,8 +157,8 @@ export default function PrivacyPolicyPage() {
                 </p>
 
                 <p className="mt-6">
-                  Gelora Tech is not responsible for the privacy practices, availability, security,
-                  or operations of third-party platforms or services.
+                  <b>Gelora Tech </b> is not responsible for the privacy practices, availability,
+                  security, or operations of third-party platforms or services.
                 </p>
 
                 <p className="mt-6">
@@ -188,15 +190,15 @@ export default function PrivacyPolicyPage() {
                 </ul>
 
                 <p className="mt-6">
-                  Gelora Tech reserves the right to delete, archive, or anonymize data at its
+                  <b>Gelora Tech </b>reserves the right to delete, archive, or anonymize data at its
                   discretion unless otherwise required by law or contractual agreement.
                 </p>
               </PolicySection>
 
               <PolicySection title="8. AI & Automated Technologies Disclaimer">
                 <p>
-                  Some services provided by Gelora Tech may involve AI-assisted tools, automation
-                  systems, machine learning models, or generated outputs.
+                  Some services provided by <b>Gelora Tech </b> may involve AI-assisted tools,
+                  automation systems, machine learning models, or generated outputs.
                 </p>
 
                 <p className="mt-6">
@@ -207,8 +209,8 @@ export default function PrivacyPolicyPage() {
                 </p>
 
                 <p className="mt-6">
-                  Gelora Tech does not guarantee the accuracy, reliability, or suitability of
-                  AI-generated content.
+                  <b>Gelora Tech </b> does not guarantee the accuracy, reliability, or suitability
+                  of AI-generated content.
                 </p>
               </PolicySection>
 
@@ -230,8 +232,8 @@ export default function PrivacyPolicyPage() {
 
               <PolicySection title="10. Suspension & Termination">
                 <p>
-                  Gelora Tech reserves the right to suspend, restrict, or terminate access to
-                  services at any time, without prior notice, if we reasonably believe a user:
+                  <b>Gelora Tech </b> reserves the right to suspend, restrict, or terminate access
+                  to services at any time, without prior notice, if we reasonably believe a user:
                 </p>
 
                 <ul className="mt-5 ml-5 list-disc space-y-4 marker:text-zinc-500">
@@ -246,8 +248,9 @@ export default function PrivacyPolicyPage() {
                 <p>
                   Unless otherwise agreed in writing, all proprietary systems, frameworks, source
                   code, software architecture, tools, designs, documentation, branding, and related
-                  materials developed or owned by Gelora Tech remain the intellectual property of
-                  Gelora Tech.
+                  materials developed or owned by <b>Gelora Tech </b> remain the intellectual
+                  property of
+                  <b>Gelora Tech </b>.
                 </p>
 
                 <p className="mt-6">
@@ -263,7 +266,7 @@ export default function PrivacyPolicyPage() {
                 </p>
 
                 <p className="mt-6">
-                  Gelora Tech disclaims all warranties including, but not limited to:
+                  <b>Gelora Tech </b> disclaims all warranties including, but not limited to:
                 </p>
 
                 <ul className="mt-5 ml-5 list-disc space-y-4 marker:text-zinc-500">
@@ -280,8 +283,8 @@ export default function PrivacyPolicyPage() {
 
               <PolicySection title="13. Limitation of Liability">
                 <p>
-                  To the maximum extent permitted under applicable law, Gelora Tech shall not be
-                  liable for:
+                  To the maximum extent permitted under applicable law, <b>Gelora Tech </b> shall
+                  not be liable for:
                 </p>
 
                 <ul className="mt-5 ml-5 list-disc space-y-4 marker:text-zinc-500">
@@ -301,9 +304,9 @@ export default function PrivacyPolicyPage() {
 
               <PolicySection title="14. Force Majeure">
                 <p>
-                  Gelora Tech shall not be held responsible for delays, interruptions, failures, or
-                  inability to perform caused by circumstances beyond reasonable control, including
-                  but not limited to:
+                  <b>Gelora Tech </b> shall not be held responsible for delays, interruptions,
+                  failures, or inability to perform caused by circumstances beyond reasonable
+                  control, including but not limited to:
                 </p>
 
                 <ul className="mt-5 ml-5 list-disc space-y-4 marker:text-zinc-500">
@@ -384,12 +387,12 @@ function PolicySection({ title, children }: { title: string; children: React.Rea
         transition={{
           duration: 0.2,
         }}
-        className="text-[22px] font-semibold tracking-tight text-white"
+        className="text-[18px] font-medium tracking-tight text-zinc-200"
       >
         {title}
       </motion.h2>
 
-      <div className="mt-5 space-y-4 text-[16px] leading-8 text-zinc-400">{children}</div>
+      <div className="mt-5 space-y-5 text-[16px] leading-8 text-zinc-300">{children}</div>
     </motion.section>
   );
 }

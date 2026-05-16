@@ -1,22 +1,22 @@
 export const navigation = [
   {
     label: "Home",
-    href: "#home",
+    href: "/",
   },
   {
     label: "Services",
-    href: "#services",
+    href: "/service",
   },
   {
     label: "About",
-    href: "#about",
+    href: "/about",
   },
   {
     label: "Projects",
-    href: "#projects",
+    href: "/projects",
   },
   {
     label: "Contact",
-    href: "#contact",
+    href: "/contact",
   },
 ];
