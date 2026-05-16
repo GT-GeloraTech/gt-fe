@@ -212,7 +212,7 @@ export function ContactForm() {
           )}
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        {/* <div className="grid gap-6 md:grid-cols-2">
           <div>
             <label className="text-muted mb-3 block text-sm">Estimated Timeline</label>
 
@@ -236,7 +236,7 @@ export function ContactForm() {
               className="focus:border-primary w-full rounded-2xl border border-white/10 bg-white/[0.03] p-4 outline-none"
             />
           </div>
-        </div>
+        </div> */}
 
         <button
           type="submit"

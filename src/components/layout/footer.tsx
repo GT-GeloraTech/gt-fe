@@ -68,10 +68,10 @@ export function Footer() {
                     icon: Linkedin,
                     href: "https://linkedin.com/company/yourcompany",
                   },
-                  {
-                    icon: Github,
-                    href: "https://github.com/yourusername",
-                  },
+                  // {
+                  //   icon: Github,
+                  //   href: "https://github.com/yourusername",
+                  // },
                 ].map((item, index) => {
                   const Icon = item.icon;
 
