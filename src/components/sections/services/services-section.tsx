@@ -40,10 +40,11 @@ export function ServicesSection() {
                     ease: [0.16, 1, 0.3, 1],
                   }}
                 >
-                  <Card className="group relative min-h-[250px] rounded-[26px] border border-[#d4b06a]/10 bg-[#341042]/60 p-8 backdrop-blur-md transition-all duration-500 hover:border-[#d4b06a]/30 hover:shadow-[0_0_40px_rgba(212,176,106,0.10)]">
+                  <Card className="group relative min-h-[250px] rounded-[26px] border border-[#d4b06a]/20 bg-[#341042]/60 p-8 backdrop-blur-md transition-all duration-500 hover:border-[#d4b06a]/70 hover:shadow-[0_0_60px_rgba(212,176,106,0.35)]">
                     {/* Glow */}
                     <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                      <div className="absolute top-0 left-1/2 h-32 w-32 -translate-x-1/2 rounded-full bg-[#d4b06a]/10 blur-3xl" />
+                      {/* Outer glow */}
+                      <div className="absolute inset-0 rounded-[26px] border border-[#d4b06a]/40 shadow-[0_0_80px_rgba(212,176,106,0.35)]" />
                     </div>
 
                     {/* Content */}

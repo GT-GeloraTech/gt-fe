@@ -9,7 +9,7 @@ import { Container } from "@/components/common/container";
 
 export function WhyUsSection() {
   return (
-    <section id="about" className="relative overflow-hidden bg-[#35143d] py-24">
+    <section id="about" className="relative overflow-visible bg-[#35143d] py-24">
       <Container>
         {/* Heading */}
         <Reveal>
@@ -36,39 +36,37 @@ export function WhyUsSection() {
                   duration: 0.4,
                   ease: [0.16, 1, 0.3, 1] as const,
                 }}
-                className="group relative overflow-hidden rounded-[28px] border border-[#d4b06a]/12 bg-[#2a0d35]/60 p-8 backdrop-blur-xl transition-all duration-500 hover:border-[#d4b06a]/25 hover:shadow-[0_0_35px_rgba(212,176,106,0.08)]"
+                className="group relative overflow-visible rounded-[28px]"
               >
-                {/* Glow */}
-                <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                  <div className="absolute top-0 left-1/2 h-32 w-32 -translate-x-1/2 rounded-full bg-[#d4b06a]/10 blur-3xl" />
-                </div>
+                {/* Glow Behind Card */}
+                <div className="pointer-events-none absolute -inset-3 rounded-[32px] bg-[#d4b06a]/0 opacity-0 blur-3xl transition-all duration-500 group-hover:bg-[#d4b06a]/20 group-hover:opacity-100" />
 
-                {/* Subtle Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent opacity-50" />
+                {/* Actual Card */}
+                <div className="relative z-10 rounded-[28px] border border-[#d4b06a]/12 bg-[#2a0d35]/60 p-8 backdrop-blur-xl transition-all duration-500 group-hover:border-[#d4b06a]/50 group-hover:shadow-[0_0_50px_rgba(212,176,106,0.15)]">
+                  {/* Content */}
+                  <div className="relative z-10">
+                    {/* Icon Box */}
+                    <motion.div
+                      whileHover={{
+                        scale: 1.05,
+                      }}
+                      transition={{
+                        duration: 0.3,
+                        ease: [0.16, 1, 0.3, 1] as const,
+                      }}
+                      className="mb-7 flex h-[56px] w-[56px] items-center justify-center rounded-[18px] border border-[#d4b06a]/20 bg-[#d4b06a]/10 text-[#d4b06a] transition-all duration-500 group-hover:border-[#d4b06a]/40 group-hover:bg-[#d4b06a]/15"
+                    >
+                      <item.icon size={28} strokeWidth={2.2} />
+                    </motion.div>
 
-                {/* Content */}
-                <div className="relative z-10">
-                  {/* Icon Box */}
-                  <motion.div
-                    whileHover={{
-                      scale: 1.05,
-                    }}
-                    transition={{
-                      duration: 0.3,
-                      ease: [0.16, 1, 0.3, 1] as const,
-                    }}
-                    className="mb-7 flex h-[56px] w-[56px] items-center justify-center rounded-[18px] border border-[#d4b06a]/20 bg-[#d4b06a]/10 text-[#d4b06a] group-hover:border-[#d4b06a]/40 group-hover:bg-[#d4b06a]/15"
-                  >
-                    <item.icon size={28} strokeWidth={2.2} />
-                  </motion.div>
+                    {/* Title */}
+                    <h3 className="text-[22px] leading-tight font-bold text-white">{item.title}</h3>
 
-                  {/* Title */}
-                  <h3 className="text-[22px] leading-tight font-bold text-white">{item.title}</h3>
-
-                  {/* Description */}
-                  <p className="mt-5 max-w-[320px] text-[16px] leading-8 text-zinc-400">
-                    {item.description}
-                  </p>
+                    {/* Description */}
+                    <p className="mt-5 max-w-[320px] text-[16px] leading-8 text-zinc-400">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
               </motion.div>
             </Reveal>

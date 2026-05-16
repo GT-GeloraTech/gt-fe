@@ -28,7 +28,7 @@ export default function TermsPage() {
 
       <main className="min-h-screen bg-[#35143d] pt-36 pb-28 text-white">
         <Container>
-          <div className="mx-auto max-w-3xl">
+          <div className="mx-auto max-w-4xl">
             {/* Header */}
             <motion.div
               initial="hidden"
@@ -54,16 +54,16 @@ export default function TermsPage() {
                   delay: 0.1,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="mt-4 text-5xl leading-tight font-semibold tracking-tight"
+                className="mt-4 text-4xl leading-tight font-medium tracking-tight text-zinc-100"
               >
                 Terms & Conditions
               </motion.h1>
             </motion.div>
 
             {/* Content */}
-            <div className="mt-14 space-y-14 text-[16px] leading-8 text-zinc-400">
+            <div className="mt-14 space-y-16 text-[16px] leading-8 text-zinc-300">
               <section>
-                <h2 className="text-2xl font-semibold text-white">
+                <h2 className="text-[20px] font-medium tracking-tight text-zinc-200">
                   Terms & Conditions — Gelora Tech
                 </h2>
 
@@ -80,9 +80,9 @@ export default function TermsPage() {
 
               <PolicySection title="1. Services">
                 <p>
-                  Gelora Tech provides technology-related services including software development,
-                  mobile applications, AI automation, cloud solutions, APIs, consulting, enterprise
-                  systems, and related digital services.
+                  <b>Gelora Tech </b> provides technology-related services including software
+                  development, mobile applications, AI automation, cloud solutions, APIs,
+                  consulting, enterprise systems, and related digital services.
                 </p>
 
                 <p className="mt-6">
@@ -111,13 +111,16 @@ export default function TermsPage() {
                   <li>Abuse APIs or automation systems</li>
                 </ul>
 
-                <p className="mt-6">Gelora Tech may suspend or terminate access for violations.</p>
+                <p className="mt-6">
+                  <b>Gelora Tech </b> may suspend or terminate access for violations.
+                </p>
               </PolicySection>
 
               <PolicySection title="4. Intellectual Property Rights">
                 <p>
                   All software, source code, systems, designs, trademarks, documentation,
-                  frameworks, automation logic, APIs, and related materials owned by Gelora Tech
+                  frameworks, automation logic, APIs, and related materials owned by
+                  <b>Gelora Tech </b>
                   remain exclusive intellectual property unless otherwise agreed in writing.
                 </p>
 
@@ -127,7 +130,7 @@ export default function TermsPage() {
               <PolicySection title="5. Client Content & Responsibility">
                 <p>
                   Users retain responsibility for all data, files, content, credentials, and
-                  materials submitted to Gelora Tech.
+                  materials submitted to <b>Gelora Tech </b>.
                 </p>
 
                 <p className="mt-6">
@@ -136,8 +139,8 @@ export default function TermsPage() {
                 </p>
 
                 <p className="mt-6">
-                  Gelora Tech is not responsible for unlawful or unauthorized content provided by
-                  users.
+                  <b>Gelora Tech </b> is not responsible for unlawful or unauthorized content
+                  provided by users.
                 </p>
               </PolicySection>
 
@@ -147,7 +150,9 @@ export default function TermsPage() {
                   infrastructure.
                 </p>
 
-                <p className="mt-6">Gelora Tech is not liable for:</p>
+                <p className="mt-6">
+                  <b>Gelora Tech </b> is not liable for:
+                </p>
 
                 <ul className="mt-5 ml-5 list-disc space-y-4 marker:text-zinc-500">
                   <li>Third-party outages</li>
@@ -173,7 +178,9 @@ export default function TermsPage() {
               </PolicySection>
 
               <PolicySection title="8. No Guarantee of Availability">
-                <p>Gelora Tech does not guarantee:</p>
+                <p>
+                  <b>Gelora Tech </b> does not guarantee:
+                </p>
 
                 <ul className="mt-5 ml-5 list-disc space-y-4 marker:text-zinc-500">
                   <li>Continuous uptime</li>
@@ -200,7 +207,7 @@ export default function TermsPage() {
                 </p>
 
                 <p className="mt-6">
-                  Gelora Tech does not guarantee accuracy or suitability of automated or
+                  <b>Gelora Tech </b>does not guarantee accuracy or suitability of automated or
                   AI-generated outputs.
                 </p>
               </PolicySection>
@@ -217,7 +224,10 @@ export default function TermsPage() {
               </PolicySection>
 
               <PolicySection title="11. Limitation of Liability">
-                <p>To the fullest extent permitted by law, Gelora Tech shall not be liable for:</p>
+                <p>
+                  To the fullest extent permitted by law,<b>Gelora Tech </b> shall not be liable
+                  for:
+                </p>
 
                 <ul className="mt-5 ml-5 list-disc space-y-4 marker:text-zinc-500">
                   <li>Indirect or consequential damages</li>
@@ -238,7 +248,7 @@ export default function TermsPage() {
 
               <PolicySection title="12. Indemnification">
                 <p>
-                  Users agree to defend, indemnify, and hold harmless Gelora Tech from claims,
+                  Users agree to defend, indemnify, and hold harmless<b>Gelora Tech </b>from claims,
                   liabilities, damages, losses, costs, or legal expenses arising from:
                 </p>
 
@@ -253,8 +263,8 @@ export default function TermsPage() {
 
               <PolicySection title="13. Service Suspension & Termination">
                 <p>
-                  Gelora Tech reserves the right to suspend or terminate services immediately
-                  without liability if:
+                  <b>Gelora Tech </b> reserves the right to suspend or terminate services
+                  immediately without liability if:
                 </p>
 
                 <ul className="mt-5 ml-5 list-disc space-y-4 marker:text-zinc-500">
@@ -267,9 +277,9 @@ export default function TermsPage() {
 
               <PolicySection title="14. Force Majeure">
                 <p>
-                  Gelora Tech shall not be responsible for delays or failures caused by events
-                  beyond reasonable control, including infrastructure failures, internet outages,
-                  government actions, cyberattacks, or natural disasters.
+                  <b>Gelora Tech </b> shall not be responsible for delays or failures caused by
+                  events beyond reasonable control, including infrastructure failures, internet
+                  outages, government actions, cyberattacks, or natural disasters.
                 </p>
               </PolicySection>
 
@@ -283,7 +293,9 @@ export default function TermsPage() {
               </PolicySection>
 
               <PolicySection title="16. Modifications">
-                <p>Gelora Tech may update these Terms at any time without prior notice.</p>
+                <p>
+                  <b>Gelora Tech </b>may update these Terms at any time without prior notice.
+                </p>
 
                 <p className="mt-6">
                   Continued use of services constitutes acceptance of revised Terms.
@@ -333,12 +345,12 @@ function PolicySection({ title, children }: { title: string; children: React.Rea
         transition={{
           duration: 0.2,
         }}
-        className="text-[22px] font-semibold tracking-tight text-white"
+        className="text-[18px] font-medium tracking-tight text-zinc-200"
       >
         {title}
       </motion.h2>
 
-      <div className="mt-5 space-y-4 text-[16px] leading-8 text-zinc-400">{children}</div>
+      <div className="mt-5 space-y-5 text-[16px] leading-8 text-zinc-300">{children}</div>
     </motion.section>
   );
 }

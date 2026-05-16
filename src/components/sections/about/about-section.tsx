@@ -132,35 +132,36 @@ export function AboutSection() {
                 duration: 0.4,
                 ease: [0.16, 1, 0.3, 1] as const,
               }}
-              className="group relative overflow-hidden rounded-[24px] border border-[#d4b06a]/12 bg-[#2a0d35]/60 p-8 backdrop-blur-xl transition-all duration-500 hover:border-[#d4b06a]/25 hover:shadow-[0_0_35px_rgba(212,176,106,0.08)]"
+              className="group relative overflow-visible rounded-[24px]"
             >
-              {/* Glow */}
-              <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                <div className="absolute top-0 left-1/2 h-32 w-32 -translate-x-1/2 rounded-full bg-[#d4b06a]/10 blur-3xl" />
-              </div>
+              {/* Glow Behind Card */}
+              <div className="pointer-events-none absolute -inset-3 rounded-[30px] bg-[#d4b06a]/0 opacity-0 blur-3xl transition-all duration-500 group-hover:bg-[#d4b06a]/20 group-hover:opacity-100" />
 
-              <div className="relative z-10">
-                <motion.div
-                  whileHover={{
-                    scale: 1.05,
-                    rotate: 6,
-                  }}
-                  transition={{
-                    duration: 0.3,
-                    ease: [0.16, 1, 0.3, 1] as const,
-                  }}
-                  className="mb-8 flex h-[56px] w-[56px] items-center justify-center rounded-[16px] bg-[#d4b06a] text-black"
-                >
-                  <Target size={26} strokeWidth={2.2} />
-                </motion.div>
+              {/* Actual Card */}
+              <div className="relative z-10 rounded-[24px] border border-[#d4b06a]/12 bg-[#2a0d35]/60 p-8 backdrop-blur-xl transition-all duration-500 group-hover:border-[#d4b06a]/50 group-hover:shadow-[0_0_50px_rgba(212,176,106,0.15)]">
+                <div className="relative z-10">
+                  <motion.div
+                    whileHover={{
+                      scale: 1.05,
+                      rotate: 6,
+                    }}
+                    transition={{
+                      duration: 0.3,
+                      ease: [0.16, 1, 0.3, 1] as const,
+                    }}
+                    className="mb-8 flex h-[56px] w-[56px] items-center justify-center rounded-[16px] bg-[#d4b06a] text-black"
+                  >
+                    <Target size={26} strokeWidth={2.2} />
+                  </motion.div>
 
-                <h3 className="text-[25px] font-black text-white">Our Mission</h3>
+                  <h3 className="text-[25px] font-black text-white">Our Mission</h3>
 
-                <p className="mt-5 text-[16px] leading-8 text-zinc-300">
-                  To empower businesses with cutting-edge technology solutions that drive
-                  innovation, efficiency, and sustainable growth in an ever-evolving digital
-                  landscape.
-                </p>
+                  <p className="mt-5 text-[16px] leading-8 text-zinc-300">
+                    To empower businesses with cutting-edge technology solutions that drive
+                    innovation, efficiency, and sustainable growth in an ever-evolving digital
+                    landscape.
+                  </p>
+                </div>
               </div>
             </motion.div>
           </Reveal>
@@ -175,34 +176,35 @@ export function AboutSection() {
                 duration: 0.4,
                 ease: [0.16, 1, 0.3, 1] as const,
               }}
-              className="group relative overflow-hidden rounded-[24px] border border-[#d4b06a]/12 bg-[#2a0d35]/60 p-8 backdrop-blur-xl transition-all duration-500 hover:border-[#d4b06a]/25 hover:shadow-[0_0_35px_rgba(212,176,106,0.08)]"
+              className="group relative overflow-visible rounded-[24px]"
             >
-              {/* Glow */}
-              <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                <div className="absolute top-0 left-1/2 h-32 w-32 -translate-x-1/2 rounded-full bg-[#d4b06a]/10 blur-3xl" />
-              </div>
+              {/* Glow Behind Card */}
+              <div className="pointer-events-none absolute -inset-3 rounded-[30px] bg-[#d4b06a]/0 opacity-0 blur-3xl transition-all duration-500 group-hover:bg-[#d4b06a]/20 group-hover:opacity-100" />
 
-              <div className="relative z-10">
-                <motion.div
-                  whileHover={{
-                    scale: 1.05,
-                    rotate: -6,
-                  }}
-                  transition={{
-                    duration: 0.3,
-                    ease: [0.16, 1, 0.3, 1] as const,
-                  }}
-                  className="mb-8 flex h-[56px] w-[56px] items-center justify-center rounded-[16px] bg-[#d4b06a] text-black"
-                >
-                  <Eye size={26} strokeWidth={2.2} />
-                </motion.div>
+              {/* Actual Card */}
+              <div className="relative z-10 rounded-[24px] border border-[#d4b06a]/12 bg-[#2a0d35]/60 p-8 backdrop-blur-xl transition-all duration-500 group-hover:border-[#d4b06a]/50 group-hover:shadow-[0_0_50px_rgba(212,176,106,0.15)]">
+                <div className="relative z-10">
+                  <motion.div
+                    whileHover={{
+                      scale: 1.05,
+                      rotate: -6,
+                    }}
+                    transition={{
+                      duration: 0.3,
+                      ease: [0.16, 1, 0.3, 1] as const,
+                    }}
+                    className="mb-8 flex h-[56px] w-[56px] items-center justify-center rounded-[16px] bg-[#d4b06a] text-black"
+                  >
+                    <Eye size={26} strokeWidth={2.2} />
+                  </motion.div>
 
-                <h3 className="text-[25px] font-black text-white">Our Vision</h3>
+                  <h3 className="text-[25px] font-black text-white">Our Vision</h3>
 
-                <p className="mt-5 text-[16px] leading-8 text-zinc-300">
-                  To be the most trusted technology partner for enterprises worldwide, recognized
-                  for excellence, innovation, and delivering transformative digital solutions.
-                </p>
+                  <p className="mt-5 text-[16px] leading-8 text-zinc-300">
+                    To be the most trusted technology partner for enterprises worldwide, recognized
+                    for excellence, innovation, and delivering transformative digital solutions.
+                  </p>
+                </div>
               </div>
             </motion.div>
           </Reveal>

@@ -23,17 +23,17 @@ export function Navbar() {
   return (
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        scrolled ? "border-b border-white/10 bg-[#2a0f2f]/80 backdrop-blur-xl" : "bg-transparent"
+        scrolled ? "border-b border-white/10 bg-[#2a0f2]/80 backdrop-blur-xl" : "bg-transparent"
       }`}
     >
       <Container className="flex h-20 items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-4">
           <Image
-            src="/logo.png"
+            src="/logo_1.png"
             alt="Gelora Tech Logo"
-            width={85}
-            height={85}
+            width={150}
+            height={150}
             className="object-cover"
             priority
           />
