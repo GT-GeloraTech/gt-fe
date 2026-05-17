@@ -240,10 +240,10 @@ export function Footer() {
                   label: "Terms of Service",
                   href: "/terms",
                 },
-                {
-                  label: "Cookie Policy",
-                  href: "/cookie",
-                },
+                // {
+                //   label: "Cookie Policy",
+                //   href: "/cookie",
+                // },
               ].map((item) => (
                 <motion.div
                   key={item.label}

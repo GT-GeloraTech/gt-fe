@@ -15,7 +15,7 @@ const inquiryOptions = [
   { value: "ai", label: "AI automation" },
   { value: "security", label: "Cybersecurity" },
   { value: "consulting", label: "IT consulting" },
-  { value: "other", label: "Other (tell us)" },
+  { value: "other", label: "Other" },
 ];
 
 const emptyForm = {
@@ -24,7 +24,6 @@ const emptyForm = {
   phone: "",
   company: "",
   inquiryType: "general",
-  customInquiry: "",
   message: "",
   consent: false,
   website: "", // honeypot — must stay empty
@@ -58,15 +57,6 @@ export function ContactForm() {
     }
 
     if (formData.company.length > 100) next.company = "Company name is too long";
-
-    if (formData.inquiryType === "other") {
-      if (!formData.customInquiry.trim())
-        next.customInquiry = "Please tell us what you need help with";
-      else if (formData.customInquiry.trim().length < 3)
-        next.customInquiry = "Please add a little more detail";
-      else if (formData.customInquiry.length > 120)
-        next.customInquiry = "Keep this under 120 characters";
-    }
 
     if (!formData.message.trim()) next.message = "Project details are required";
     else if (formData.message.trim().length < 15) next.message = "Please provide more details";
@@ -115,7 +105,6 @@ export function ContactForm() {
         phone: formData.phone.trim() || null,
         company: formData.company.trim() || null,
         inquiry_type: formData.inquiryType,
-        inquiry_other: formData.inquiryType === "other" ? formData.customInquiry.trim() : null,
         message: formData.message.trim(),
         user_agent: typeof navigator !== "undefined" ? navigator.userAgent : null,
       });
@@ -244,23 +233,6 @@ export function ContactForm() {
                     </option>
                   ))}
                 </select>
-
-                {formData.inquiryType === "other" && (
-                  <div className="mt-4">
-                    <input
-                      name="customInquiry"
-                      value={formData.customInquiry}
-                      onChange={handleChange}
-                      maxLength={120}
-                      autoFocus
-                      placeholder="Briefly, what do you need help with?"
-                      className={`${inputBase} ${fieldBorder(errors.customInquiry)}`}
-                    />
-                    {errors.customInquiry && (
-                      <p className="mt-2 text-sm text-red-400">{errors.customInquiry}</p>
-                    )}
-                  </div>
-                )}
               </div>
 
               <div>
@@ -349,8 +321,9 @@ export function ContactForm() {
             <h2 className="text-3xl font-semibold md:text-4xl">Thank you for reaching out</h2>
 
             <p className="text-muted mx-auto mt-5 max-w-md text-lg leading-8">
-              Your message has reached the Gelora Tech team. One of our specialists will review the
-              details of your enquiry and respond personally within one business day.
+              Thank you for contacting Gelora Tech. We&apos;ve received your enquiry, and one of our
+              specialists is already reviewing the details — we&apos;ll personally reach out to you
+              as soon as possible.
             </p>
 
             <p className="text-muted mx-auto mt-4 max-w-md leading-7">
