@@ -16,7 +16,7 @@ export const projects = [
       "Designed for scalability and future growth",
     ],
 
-    image: "/scootyonrent.jpg",
+    image: "/scootyonrent_1.jpg",
     link: "https://www.scootyonrent.com/",
   },
 

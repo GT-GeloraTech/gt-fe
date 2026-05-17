@@ -12,7 +12,7 @@ export const projects = [
 
     heroImage: "/scootyonrent_1.jpg",
 
-    link: "/projects/scootyonrent",
+    link: "https://www.scootyonrent.com/",
 
     description: "A vehicle rental platform built to make transportation more accessible.",
 
@@ -20,10 +20,10 @@ export const projects = [
       "Started in 2026 in Udaipur, ScootyonRent was designed to solve the challenge of affordable transportation.",
 
     challenge:
-      "Travelers and local users struggled to find reliable and affordable rentals through fragmented offline systems.",
+      "Travelers and local users struggled to find reliable, affordable rentals through fragmented offline systems.",
 
     solution:
-      "We created a modern booking platform with streamlined search, booking workflows, and mobile-friendly experiences.",
+      "We created a modern booking platform with streamlined search, booking workflows and mobile-friendly experiences.",
 
     results: [
       {
@@ -73,7 +73,7 @@ export const projects = [
 
     heroImage: "/Brajmarj.png",
 
-    link: "/projects/brajmarg",
+    link: "#",
 
     description: "A devotional ecosystem combining content, engagement and community.",
 
