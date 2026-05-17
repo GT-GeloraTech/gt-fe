@@ -11,6 +11,7 @@ import { navigation } from "@/constants/navigation";
 
 import { Reveal } from "@/components/common/reveal/reveal";
 import { Container } from "../common/container";
+import { services } from "@/app/service/data";
 
 export function Footer() {
   return (
@@ -145,16 +146,9 @@ export function Footer() {
               <h4 className="text-[17px] font-bold text-white">Services</h4>
 
               <div className="mt-5 flex flex-col gap-3">
-                {[
-                  "Web Development",
-                  "Mobile Apps",
-                  "Cloud Solutions",
-                  "AI Automation",
-                  "Cybersecurity",
-                  "IT Consulting",
-                ].map((service, index) => (
-                  <motion.p
-                    key={service}
+                {Object.values(services).map((service, index) => (
+                  <motion.div
+                    key={service.slug}
                     initial={{
                       opacity: 0,
                       x: -10,
@@ -170,13 +164,14 @@ export function Footer() {
                       duration: 0.5,
                       delay: index * 0.05,
                     }}
-                    whileHover={{
-                      x: 4,
-                    }}
-                    className="cursor-pointer text-[15px] text-zinc-400 transition-colors duration-300 hover:text-[#d4b06a]"
                   >
-                    {service}
-                  </motion.p>
+                    <Link
+                      href={`/service/${service.slug}`}
+                      className="block text-[15px] text-zinc-400 transition-all duration-300 hover:translate-x-1 hover:text-[#d4b06a]"
+                    >
+                      {service.title}
+                    </Link>
+                  </motion.div>
                 ))}
               </div>
             </div>

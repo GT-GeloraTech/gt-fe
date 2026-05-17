@@ -28,7 +28,7 @@ export default function TermsPage() {
 
       <main className="min-h-screen bg-[#35143d] pt-36 pb-28 text-white">
         <Container>
-          <div className="mx-auto max-w-4xl">
+          <div className="mx-auto w-full max-w-5xl px-6 lg:px-10">
             {/* Header */}
             <motion.div
               initial="hidden"
