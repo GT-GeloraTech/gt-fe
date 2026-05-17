@@ -1,213 +1,173 @@
 "use client";
 
-import { motion, useInView, animate } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArrowRight, ArrowUpRight, Workflow, TrendingUp, LifeBuoy, Code2 } from "lucide-react";
 
-import { Target, Eye } from "lucide-react";
-
-import { useEffect, useRef, useState } from "react";
+import { projects } from "@/constants/projects";
 
 import { Reveal } from "@/components/common/reveal/reveal";
+import { TiltCard } from "@/components/common/tilt-card";
 import { Container } from "@/components/common/container";
 
-const stats = [
+const pillars = [
   {
-    value: 500,
-    suffix: "+",
-    label: "Projects Delivered",
+    icon: Workflow,
+    title: "Real workflows, not demos",
+    description:
+      "We learn how your business actually operates before writing a single line of code.",
   },
   {
-    value: 150,
-    suffix: "+",
-    label: "Enterprise Clients",
+    icon: TrendingUp,
+    title: "Built to scale",
+    description: "Architecture and decisions made for long-term growth, not short-term shortcuts.",
   },
   {
-    value: 99,
-    suffix: "%",
-    label: "Client Satisfaction",
+    icon: LifeBuoy,
+    title: "Support after launch",
+    description: "We stay involved well beyond delivery — maintenance, fixes, and improvements.",
   },
   {
-    value: 10,
-    suffix: "+",
-    label: "Years Experience",
+    icon: Code2,
+    title: "Modern, proven stack",
+    description: "Next.js, TypeScript, Node.js and PostgreSQL — reliable tools, done right.",
   },
 ];
 
-function Counter({ value, suffix }: { value: number; suffix: string }) {
-  const ref = useRef(null);
-
-  const isInView = useInView(ref, {
-    once: true,
-  });
-
-  const [displayValue, setDisplayValue] = useState(0);
-
-  useEffect(() => {
-    if (!isInView) return;
-
-    const controls = animate(0, value, {
-      duration: 2,
-      ease: "easeOut",
-      onUpdate(latest) {
-        setDisplayValue(Math.floor(latest));
-      },
-    });
-
-    return () => controls.stop();
-  }, [isInView, value]);
-
-  return (
-    <span ref={ref}>
-      {displayValue}
-      {suffix}
-    </span>
-  );
-}
+const selectedWork = projects.slice(0, 2);
 
 export function AboutSection() {
   return (
-    <section id="about" className="relative overflow-hidden bg-[#2a0d35] py-24">
+    <section id="about" className="relative overflow-hidden bg-[#2a0d35] py-20 sm:py-24 lg:py-28">
       <div className="absolute inset-0">
-        {/* Gradient */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,176,106,0.08),transparent_45%)]" />
-
-        {/* Grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:72px_72px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:48px_48px] sm:bg-[size:72px_72px]" />
       </div>
-      <Container>
-        {/* Heading */}
-        <Reveal>
-          <div className="mx-auto max-w-[900px] text-center">
-            <h2 className="mt-20 text-[56px] leading-none font-black tracking-[-0.04em] text-white">
-              About <span className="text-[#d4b06a]">Gelora Tech</span>
-            </h2>
 
-            <p className="mx-auto mt-6 max-w-[760px] text-[18px] leading-9 text-zinc-300">
-              We are a premium technology partner delivering innovative solutions that drive digital
-              transformation and business growth. Our team of expert engineers and consultants work
-              with enterprises to build secure, scalable, and future-ready systems.
-            </p>
-          </div>
-        </Reveal>
-
-        {/* Stats */}
-        <div className="mx-auto mt-16 grid max-w-[1250px] gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {stats.map((stat, index) => (
-            <Reveal key={stat.label} delay={index * 0.08}>
-              <motion.div
-                whileHover={{
-                  y: -4,
-                }}
-                transition={{
-                  duration: 0.4,
-                  ease: [0.16, 1, 0.3, 1] as const,
-                }}
-                className="group relative overflow-hidden rounded-[24px] border border-[#d4b06a]/12 bg-[#2a0d35]/60 px-6 py-8 text-center backdrop-blur-xl transition-all duration-500 hover:border-[#d4b06a]/25 hover:shadow-[0_0_35px_rgba(212,176,106,0.08)]"
-              >
-                {/* Glow */}
-                <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                  <div className="absolute top-0 left-1/2 h-28 w-28 -translate-x-1/2 rounded-full bg-[#d4b06a]/10 blur-3xl" />
-                </div>
-
-                <div className="relative z-10">
-                  <h3 className="text-[44px] leading-none font-black tracking-[-0.04em] text-[#d4b06a]">
-                    <Counter value={stat.value} suffix={stat.suffix} />
-                  </h3>
-
-                  <p className="mt-3 text-[16px] text-zinc-400">{stat.label}</p>
-                </div>
-              </motion.div>
+      <Container className="relative z-10">
+        <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Left — narrative + approach */}
+          <div>
+            <Reveal>
+              <p className="text-[13px] font-medium tracking-[0.2em] text-[#d4b06a] uppercase sm:text-[14px]">
+                About Gelora Tech
+              </p>
+              <h2 className="mt-4 text-[30px] leading-[1.1] font-black tracking-[-0.03em] text-white sm:text-[40px] lg:text-[48px] lg:tracking-[-0.04em]">
+                Software businesses can <span className="text-[#d4b06a]">depend on</span>
+              </h2>
+              <p className="mt-5 max-w-xl text-[16px] leading-8 text-zinc-300 sm:text-[17px]">
+                We&apos;re a focused engineering studio. Instead of chasing volume, we partner
+                closely with a small number of teams and build software around how they really work
+                — carefully, transparently, and supported long after launch.
+              </p>
             </Reveal>
-          ))}
-        </div>
 
-        {/* Bottom Cards */}
-        <div className="mx-auto mt-16 grid max-w-[1250px] gap-8 lg:grid-cols-2">
-          {/* Mission */}
-          <Reveal delay={0.1}>
-            <motion.div
-              whileHover={{
-                y: -4,
-              }}
-              transition={{
-                duration: 0.4,
-                ease: [0.16, 1, 0.3, 1] as const,
-              }}
-              className="group relative overflow-visible rounded-[24px]"
-            >
-              {/* Glow Behind Card */}
-              <div className="pointer-events-none absolute -inset-3 rounded-[30px] bg-[#d4b06a]/0 opacity-0 blur-3xl transition-all duration-500 group-hover:bg-[#d4b06a]/20 group-hover:opacity-100" />
+            {/* Approach pillars */}
+            <div className="mt-10 grid gap-4 sm:grid-cols-2">
+              {pillars.map((pillar, index) => {
+                const Icon = pillar.icon;
+                return (
+                  <Reveal key={pillar.title} delay={index * 0.08}>
+                    <div className="group h-full rounded-[20px] border border-[#d4b06a]/12 bg-white/[0.02] p-5 transition-all duration-500 hover:border-[#d4b06a]/35 hover:bg-white/[0.04] sm:p-6">
+                      <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-[14px] border border-[#d4b06a]/20 bg-[#d4b06a]/10 text-[#d4b06a] transition-colors duration-500 group-hover:bg-[#d4b06a] group-hover:text-black">
+                        <Icon size={20} strokeWidth={2} />
+                      </div>
+                      <h3 className="text-[16px] font-bold text-white sm:text-[17px]">
+                        {pillar.title}
+                      </h3>
+                      <p className="mt-2 text-[14px] leading-6 text-zinc-400 sm:text-[15px]">
+                        {pillar.description}
+                      </p>
+                    </div>
+                  </Reveal>
+                );
+              })}
+            </div>
 
-              {/* Actual Card */}
-              <div className="relative z-10 rounded-[24px] border border-[#d4b06a]/12 bg-[#2a0d35]/60 p-8 backdrop-blur-xl transition-all duration-500 group-hover:border-[#d4b06a]/50 group-hover:shadow-[0_0_50px_rgba(212,176,106,0.15)]">
-                <div className="relative z-10">
-                  <motion.div
-                    whileHover={{
-                      scale: 1.05,
-                      rotate: 6,
-                    }}
-                    transition={{
-                      duration: 0.3,
-                      ease: [0.16, 1, 0.3, 1] as const,
-                    }}
-                    className="mb-8 flex h-[56px] w-[56px] items-center justify-center rounded-[16px] bg-[#d4b06a] text-black"
-                  >
-                    <Target size={26} strokeWidth={2.2} />
-                  </motion.div>
-
-                  <h3 className="text-[25px] font-black text-white">Our Mission</h3>
-
-                  <p className="mt-5 text-[16px] leading-8 text-zinc-300">
-                    To empower businesses with cutting-edge technology solutions that drive
-                    innovation, efficiency, and sustainable growth in an ever-evolving digital
-                    landscape.
-                  </p>
-                </div>
+            <Reveal delay={0.1}>
+              <div className="mt-10 flex flex-wrap items-center gap-4">
+                <Link
+                  href="/about"
+                  className="group inline-flex items-center gap-3 rounded-full bg-[#d4b06a] px-7 py-4 text-[15px] font-semibold text-black transition-all duration-300 hover:bg-[#ddbc79] sm:text-[16px]"
+                >
+                  Learn more about us
+                  <ArrowRight
+                    size={18}
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  />
+                </Link>
+                <span className="text-[14px] text-zinc-500">Founded 2026 · Udaipur, India</span>
               </div>
-            </motion.div>
-          </Reveal>
+            </Reveal>
+          </div>
 
-          {/* Vision */}
-          <Reveal delay={0.2}>
-            <motion.div
-              whileHover={{
-                y: -4,
-              }}
-              transition={{
-                duration: 0.4,
-                ease: [0.16, 1, 0.3, 1] as const,
-              }}
-              className="group relative overflow-visible rounded-[24px]"
-            >
-              {/* Glow Behind Card */}
-              <div className="pointer-events-none absolute -inset-3 rounded-[30px] bg-[#d4b06a]/0 opacity-0 blur-3xl transition-all duration-500 group-hover:bg-[#d4b06a]/20 group-hover:opacity-100" />
+          {/* Right — selected work */}
+          <div>
+            <Reveal direction="left">
+              <p className="mb-5 text-[13px] font-medium tracking-[0.2em] text-zinc-500 uppercase sm:text-[14px]">
+                Selected work
+              </p>
+            </Reveal>
 
-              {/* Actual Card */}
-              <div className="relative z-10 rounded-[24px] border border-[#d4b06a]/12 bg-[#2a0d35]/60 p-8 backdrop-blur-xl transition-all duration-500 group-hover:border-[#d4b06a]/50 group-hover:shadow-[0_0_50px_rgba(212,176,106,0.15)]">
-                <div className="relative z-10">
-                  <motion.div
-                    whileHover={{
-                      scale: 1.05,
-                      rotate: -6,
-                    }}
-                    transition={{
-                      duration: 0.3,
-                      ease: [0.16, 1, 0.3, 1] as const,
-                    }}
-                    className="mb-8 flex h-[56px] w-[56px] items-center justify-center rounded-[16px] bg-[#d4b06a] text-black"
-                  >
-                    <Eye size={26} strokeWidth={2.2} />
-                  </motion.div>
+            <div className="space-y-5 sm:space-y-6">
+              {selectedWork.map((project, index) => (
+                <Reveal key={project.slug} delay={index * 0.1} direction="left">
+                  <TiltCard intensity={5}>
+                    <Link href={project.link} className="block">
+                      <div className="group relative overflow-hidden rounded-[24px] border border-[#d4b06a]/15 bg-[#3a173f]/80 transition-all duration-500 hover:border-[#d4b06a]/40 hover:shadow-[0_0_50px_rgba(212,176,106,0.15)] sm:rounded-[28px]">
+                        <div className="relative h-[180px] overflow-hidden sm:h-[200px]">
+                          <motion.div
+                            whileHover={{ scale: 1.06 }}
+                            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                            className="absolute inset-0"
+                          >
+                            <Image
+                              src={project.image}
+                              alt={project.title}
+                              fill
+                              sizes="(max-width: 1024px) 100vw, 45vw"
+                              className="object-cover object-center"
+                            />
+                          </motion.div>
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#1f0c24] via-[#1f0c24]/40 to-transparent" />
 
-                  <h3 className="text-[25px] font-black text-white">Our Vision</h3>
+                          <div className="absolute right-5 bottom-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#d4b06a] text-black opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                            <ArrowUpRight size={20} />
+                          </div>
+                        </div>
 
-                  <p className="mt-5 text-[16px] leading-8 text-zinc-300">
-                    To be the most trusted technology partner for enterprises worldwide, recognized
-                    for excellence, innovation, and delivering transformative digital solutions.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </Reveal>
+                        <div className="p-5 sm:p-6">
+                          <div className="mb-3 inline-flex rounded-full border border-[#d4b06a]/20 bg-[#d4b06a]/10 px-3 py-1.5 text-[12px] font-medium text-[#d4b06a]">
+                            {project.category}
+                          </div>
+                          <h3 className="text-[19px] font-bold text-white sm:text-[21px]">
+                            {project.title}
+                          </h3>
+                          <p className="mt-2 text-[14px] leading-7 text-zinc-400 sm:text-[15px]">
+                            {project.subtitle}
+                          </p>
+                        </div>
+                      </div>
+                    </Link>
+                  </TiltCard>
+                </Reveal>
+              ))}
+
+              <Reveal delay={0.15} direction="left">
+                <Link
+                  href="/projects"
+                  className="group inline-flex items-center gap-2 text-[15px] font-semibold text-[#d4b06a] transition-colors duration-300 hover:text-[#ddbc79]"
+                >
+                  See all projects
+                  <ArrowRight
+                    size={16}
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  />
+                </Link>
+              </Reveal>
+            </div>
+          </div>
         </div>
       </Container>
     </section>

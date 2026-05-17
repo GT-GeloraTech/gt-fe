@@ -14,11 +14,11 @@ export function ProjectsHero() {
             ease: [0.22, 1, 0.36, 1],
           }}
         >
-          <div className="mb-8 inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-5 py-2">
+          {/* <div className="mb-8 inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-5 py-2">
             <span className="text-primary text-xs font-medium tracking-[0.2em] uppercase">
               Projects
             </span>
-          </div>
+          </div> */}
 
           <h1 className="mx-auto max-w-5xl text-5xl leading-[1] font-semibold tracking-[-0.04em] md:text-7xl lg:text-8xl">
             Projects built around

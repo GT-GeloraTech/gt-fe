@@ -19,7 +19,7 @@ export default function ServicesPage() {
 
         <ServicesGrid />
 
-        <ServicesCTA />
+        {/* <ServicesCTA /> */}
       </main>
       <Footer />
     </>

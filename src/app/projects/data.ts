@@ -109,6 +109,6 @@ export const projects = [
 
     process: ["Research", "Architecture", "Design", "Development", "Launch"],
 
-    gallery: ["/projects/braj-1.jpg", "/projects/braj-2.jpg"],
+    gallery: ["/brajmargimage.png", "/brajmarg1.png"],
   },
 ];

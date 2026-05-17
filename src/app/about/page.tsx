@@ -22,7 +22,7 @@ export default function AboutPage() {
         <MissionVision />
         <CoreValues />
         <HowWeWork />
-        <AboutCTA />
+        {/* <AboutCTA /> */}
       </main>
       <Footer />
     </>

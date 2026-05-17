@@ -1,8 +1,8 @@
 export function AboutStory() {
   return (
-    <section className="px-6 py-32">
+    <section className="px-6 py-14 sm:py-20">
       <div className="mx-auto max-w-5xl">
-        <div className="rounded-[40px] border border-white/10 bg-white/[0.02] px-8 py-16 md:px-20 md:py-24">
+        <div className="rounded-[40px] border border-white/10 bg-white/[0.02] px-6 py-10 md:px-16 md:py-14">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-primary mb-4 text-sm font-medium tracking-[0.2em] uppercase">
               Our Story
@@ -12,7 +12,7 @@ export function AboutStory() {
               Built from a simple observation
             </h2>
 
-            <div className="text-muted mt-12 space-y-8 text-lg leading-9">
+            <div className="text-muted mt-8 space-y-6 text-lg leading-9">
               <p className="text-foreground text-xl font-medium">
                 Software looked impressive in presentations, but often failed where it mattered
                 most.
