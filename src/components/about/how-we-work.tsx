@@ -2,9 +2,9 @@ import { process } from "./data";
 
 export function HowWeWork() {
   return (
-    <section className="px-6 py-24">
+    <section className="px-6 py-12 sm:py-16">
       <div className="mx-auto max-w-6xl">
-        <h2 className="mb-14 text-center text-4xl font-bold">How We Work</h2>
+        <h2 className="mb-10 text-center text-4xl font-bold">How We Work</h2>
 
         <div className="space-y-6">
           {process.map((step, i) => (

@@ -1,16 +1,15 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 
 export function AboutHero() {
   return (
-    <section className="px-6 pt-32 pb-24">
+    <section className="px-6 pt-28 pb-10 sm:pt-32 sm:pb-14">
       <div className="mx-auto max-w-7xl text-center">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
-          <span className="border-primary/20 bg-card text-primary mb-6 inline-flex rounded-full border px-5 py-2 text-sm">
+          {/* <span className="border-primary/20 bg-card text-primary mb-6 inline-flex rounded-full border px-5 py-2 text-sm">
             About Gelora Tech
-          </span>
+          </span> */}
 
           <h1 className="mx-auto max-w-5xl text-5xl leading-tight font-bold md:text-7xl">
             Building software that businesses can actually depend on
@@ -22,7 +21,7 @@ export function AboutHero() {
             not short-term demos.
           </p>
 
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
+          {/* <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link
               href="/contact"
               className="premium-shadow bg-primary rounded-xl px-8 py-4 font-medium text-black"
@@ -33,7 +32,7 @@ export function AboutHero() {
             <Link href="/projects" className="glass-card rounded-xl px-8 py-4">
               View Our Work
             </Link>
-          </div>
+          </div> */}
         </motion.div>
       </div>
     </section>

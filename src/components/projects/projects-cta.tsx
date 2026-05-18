@@ -26,7 +26,7 @@ export function ProjectsCTA() {
 
           <div className="shrink-0">
             <Link
-              href="/contact"
+              href="/contact?focus=form"
               className="bg-primary hover:bg-primary-dark inline-flex items-center rounded-full px-8 py-4 text-sm font-medium text-black transition-all duration-300 hover:scale-[1.02]"
             >
               Talk With Us

@@ -2,9 +2,9 @@ import { values } from "./data";
 
 export function CoreValues() {
   return (
-    <section className="px-6 py-24">
+    <section className="px-6 py-12 sm:py-16">
       <div className="mx-auto max-w-7xl">
-        <h2 className="mb-14 text-center text-4xl font-bold">Core Values</h2>
+        <h2 className="mb-10 text-center text-4xl font-bold">Core Values</h2>
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {values.map((item) => {

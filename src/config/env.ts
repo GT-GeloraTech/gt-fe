@@ -14,7 +14,7 @@ const serverSchema = z.object({
 const clientSchema = z.object({
   NEXT_PUBLIC_APP_URL: z.string().url().default("http://localhost:3000"),
   NEXT_PUBLIC_API_URL: z.string().url().default("http://localhost:3000/api"),
-  NEXT_PUBLIC_APP_NAME: z.string().default("GT"),
+  NEXT_PUBLIC_APP_NAME: z.string().default("Gelora Tech"),
 });
 
 const processEnv = {

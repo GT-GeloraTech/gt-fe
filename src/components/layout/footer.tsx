@@ -209,7 +209,7 @@ export function Footer() {
                   ),
                 )}
 
-                <motion.p
+                {/* <motion.p
                   whileHover={{
                     x: 3,
                   }}
@@ -219,7 +219,7 @@ export function Footer() {
                   className="pt-4 text-[15px] font-medium text-[#d4b06a]"
                 >
                   Available 24/7
-                </motion.p>
+                </motion.p> */}
               </div>
             </div>
           </Reveal>
@@ -240,10 +240,10 @@ export function Footer() {
                   label: "Terms of Service",
                   href: "/terms",
                 },
-                {
-                  label: "Cookie Policy",
-                  href: "/cookie",
-                },
+                // {
+                //   label: "Cookie Policy",
+                //   href: "/cookie",
+                // },
               ].map((item) => (
                 <motion.div
                   key={item.label}

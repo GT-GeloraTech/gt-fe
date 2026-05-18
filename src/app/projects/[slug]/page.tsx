@@ -164,10 +164,17 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           <h2 className="mb-14 text-center text-5xl font-semibold">Project Screens</h2>
 
           <div className="grid gap-8 md:grid-cols-2">
-            {project.gallery.map((image) => (
+            {project.gallery.map((image, index) => (
               <div key={image} className="glass-card overflow-hidden rounded-[32px]">
-                <div className="relative h-[350px]">
-                  <Image src={image} alt="" fill className="object-cover" />
+                <div className="relative h-[320px] sm:h-[420px]">
+                  <Image
+                    src={image}
+                    alt={`${project.title} screen ${index + 1}`}
+                    fill
+                    quality={100}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover object-top"
+                  />
                 </div>
               </div>
             ))}

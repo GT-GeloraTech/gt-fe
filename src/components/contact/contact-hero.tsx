@@ -28,9 +28,9 @@ export function ContactHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <div className="border-primary/20 text-primary mb-8 inline-flex rounded-full border px-6 py-3 text-sm font-medium backdrop-blur-xl">
+          {/* <div className="border-primary/20 text-primary mb-8 inline-flex rounded-full border px-6 py-3 text-sm font-medium backdrop-blur-xl">
             CONTACT
-          </div>
+          </div> */}
 
           <h1 className="mx-auto max-w-5xl text-5xl leading-none font-semibold tracking-tight md:text-8xl">
             Let&apos;s discuss

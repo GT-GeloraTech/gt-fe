@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export function AboutIntro() {
   return (
-    <section className="px-6 py-32">
-      <div className="mx-auto grid max-w-7xl items-center gap-20 lg:grid-cols-[1.1fr_0.9fr]">
+    <section className="px-6 pt-10 pb-20 sm:pt-14 sm:pb-28">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
         <div className="max-w-2xl">
           <p className="text-primary mb-4 text-sm font-medium tracking-[0.2em] uppercase">
             About Gelora Tech

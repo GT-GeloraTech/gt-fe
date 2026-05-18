@@ -15,7 +15,7 @@ export const contactDetails = [
 
   {
     title: "Response Time",
-    text: ["Most enquiries receive a response within one business day."],
+    text: ["We review every enquiry and reach out as soon as possible."],
     icon: CalendarDays,
   },
 
