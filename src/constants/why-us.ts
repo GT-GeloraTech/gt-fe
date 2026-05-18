@@ -1,4 +1,4 @@
-import { Rocket, Shield, TrendingUp, Users, Clock } from "lucide-react";
+import { Rocket, Shield, TrendingUp, Users, Clock, Code2 } from "lucide-react";
 
 export const whyUs = [
   {
@@ -15,6 +15,12 @@ export const whyUs = [
     title: "Scalable Solutions",
     description: "Architecture designed to grow seamlessly with your business.",
     icon: TrendingUp,
+  },
+  {
+    title: "Custom Software",
+    description:
+      "Tailor-made software solutions engineered around your workflows and business goals.",
+    icon: Code2,
   },
   {
     title: "Expert Team",

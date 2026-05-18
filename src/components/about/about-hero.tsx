@@ -4,35 +4,24 @@ import { motion } from "framer-motion";
 
 export function AboutHero() {
   return (
-    <section className="px-6 pt-28 pb-10 sm:pt-32 sm:pb-14">
-      <div className="mx-auto max-w-7xl text-center">
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
-          {/* <span className="border-primary/20 bg-card text-primary mb-6 inline-flex rounded-full border px-5 py-2 text-sm">
-            About Gelora Tech
-          </span> */}
-
-          <h1 className="mx-auto max-w-5xl text-5xl leading-tight font-bold md:text-7xl">
-            Building software that businesses can actually depend on
+    <section className="relative overflow-hidden px-6 pt-32 pb-20">
+      <div className="relative mx-auto max-w-7xl text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          <h1 className="mx-auto max-w-6xl text-5xl leading-[0.95] font-bold tracking-[-0.04em] sm:text-6xl md:text-8xl">
+            Building software
+            <br />
+            businesses can
+            <span className="text-primary"> real business needs</span>
           </h1>
 
-          <p className="text-muted mx-auto mt-8 max-w-3xl text-lg leading-8">
-            Gelora Tech develops web platforms, mobile applications, AI automation systems, and
-            cloud-based solutions for companies that need technology built for long-term growth —
-            not short-term demos.
+          <p className="text-muted mx-auto mt-10 max-w-2xl text-lg leading-8 md:text-xl">
+            From web platforms and AI automation to scalable cloud systems, Gelora Tech helps
+            companies build technology designed for reliability, growth, and long-term success.
           </p>
-
-          {/* <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <Link
-              href="/contact"
-              className="premium-shadow bg-primary rounded-xl px-8 py-4 font-medium text-black"
-            >
-              Talk With Us
-            </Link>
-
-            <Link href="/projects" className="glass-card rounded-xl px-8 py-4">
-              View Our Work
-            </Link>
-          </div> */}
         </motion.div>
       </div>
     </section>

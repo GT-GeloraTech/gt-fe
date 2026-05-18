@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
 import { ArrowRight, ArrowUpRight, Workflow, TrendingUp, LifeBuoy, Code2 } from "lucide-react";
 
-import { projects } from "@/constants/projects";
+import { projects } from "../../../app/projects/data";
 
 import { Reveal } from "@/components/common/reveal/reveal";
 import { TiltCard } from "@/components/common/tilt-card";
@@ -35,9 +36,24 @@ const pillars = [
   },
 ];
 
-const selectedWork = projects.slice(0, 2);
+const selectedWork = projects.slice(0, 4);
 
 export function AboutSection() {
+  const [activeImages, setActiveImages] = useState<number[]>(selectedWork.map(() => 0));
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveImages((prev) =>
+        prev.map((current, projectIndex) => {
+          const gallery = selectedWork[projectIndex]?.gallery ?? [];
+
+          return gallery.length > 0 ? (current + 1) % gallery.length : 0;
+        }),
+      );
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
   return (
     <section id="about" className="relative overflow-hidden bg-[#2a0d35] py-20 sm:py-24 lg:py-28">
       <div className="absolute inset-0">
@@ -110,63 +126,102 @@ export function AboutSection() {
               </p>
             </Reveal>
 
-            <div className="space-y-5 sm:space-y-6">
-              {selectedWork.map((project, index) => (
-                <Reveal key={project.slug} delay={index * 0.1} direction="left">
-                  <TiltCard intensity={5}>
-                    <Link href={project.link} className="block">
-                      <div className="group relative overflow-hidden rounded-[24px] border border-[#d4b06a]/15 bg-[#3a173f]/80 transition-all duration-500 hover:border-[#d4b06a]/40 hover:shadow-[0_0_50px_rgba(212,176,106,0.15)] sm:rounded-[28px]">
-                        <div className="relative h-[180px] overflow-hidden sm:h-[200px]">
-                          <motion.div
-                            whileHover={{ scale: 1.06 }}
-                            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                            className="absolute inset-0"
-                          >
-                            <Image
-                              src={project.image}
-                              alt={project.title}
-                              fill
-                              sizes="(max-width: 1024px) 100vw, 45vw"
-                              className="object-cover object-center"
-                            />
-                          </motion.div>
-                          <div className="absolute inset-0 bg-gradient-to-t from-[#1f0c24] via-[#1f0c24]/40 to-transparent" />
+            <div className="grid auto-rows-fr gap-6 sm:grid-cols-2">
+              {selectedWork.map((project, index) => {
+                const currentImageIndex = activeImages[index] ?? 0;
 
-                          <div className="absolute right-5 bottom-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#d4b06a] text-black opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                            <ArrowUpRight size={20} />
+                const currentImage = project.gallery?.[currentImageIndex] ?? project.image;
+
+                return (
+                  <motion.div
+                    key={project.slug}
+                    initial={{ opacity: 0, y: 80 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.8,
+                      delay: index * 0.18,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                  >
+                    <TiltCard intensity={6}>
+                      <Link href={project.link}>
+                        <div className="group relative flex h-[460px] flex-col overflow-hidden rounded-[30px] border border-[#d4b06a]/10 bg-[#34153b] transition-all duration-700 hover:border-[#d4b06a]/40 hover:shadow-[0_0_60px_rgba(212,176,106,.15)]">
+                          <div className="relative h-[260px] shrink-0 overflow-hidden">
+                            <AnimatePresence mode="wait">
+                              <motion.div
+                                key={currentImage}
+                                initial={{
+                                  opacity: 0,
+                                  scale: 1.05,
+                                }}
+                                animate={{
+                                  opacity: 1,
+                                  scale: 1,
+                                }}
+                                exit={{
+                                  opacity: 0,
+                                }}
+                                transition={{
+                                  duration: 0.8,
+                                }}
+                                className="absolute inset-0"
+                              >
+                                <Image
+                                  src={currentImage}
+                                  alt={project.title}
+                                  fill
+                                  className="object-cover"
+                                />
+                              </motion.div>
+                            </AnimatePresence>
+
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#1d0c22] via-transparent to-transparent" />
+
+                            <div className="absolute top-5 right-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#d4b06a] text-black opacity-0 transition-all group-hover:opacity-100">
+                              <ArrowUpRight size={18} />
+                            </div>
+
+                            <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
+                              {project.gallery.map((_, i) => (
+                                <div
+                                  key={i}
+                                  className={`h-1.5 rounded-full transition-all ${
+                                    currentImageIndex === i ? "w-8 bg-white" : "w-2 bg-white/30"
+                                  }`}
+                                />
+                              ))}
+                            </div>
+                          </div>
+
+                          <div className="p-6">
+                            <span className="inline-flex rounded-full border border-[#d4b06a]/20 bg-[#d4b06a]/10 px-3 py-1 text-xs text-[#d4b06a]">
+                              {project.category}
+                            </span>
+
+                            <h3 className="mt-4 text-xl font-bold text-white">{project.title}</h3>
+
+                            <p className="mt-3 line-clamp-3 text-sm leading-7 text-zinc-400">
+                              {project.subtitle}
+                            </p>
                           </div>
                         </div>
-
-                        <div className="p-5 sm:p-6">
-                          <div className="mb-3 inline-flex rounded-full border border-[#d4b06a]/20 bg-[#d4b06a]/10 px-3 py-1.5 text-[12px] font-medium text-[#d4b06a]">
-                            {project.category}
-                          </div>
-                          <h3 className="text-[19px] font-bold text-white sm:text-[21px]">
-                            {project.title}
-                          </h3>
-                          <p className="mt-2 text-[14px] leading-7 text-zinc-400 sm:text-[15px]">
-                            {project.subtitle}
-                          </p>
-                        </div>
-                      </div>
-                    </Link>
-                  </TiltCard>
-                </Reveal>
-              ))}
-
-              <Reveal delay={0.15} direction="left">
-                <Link
-                  href="/projects"
-                  className="group inline-flex items-center gap-2 text-[15px] font-semibold text-[#d4b06a] transition-colors duration-300 hover:text-[#ddbc79]"
-                >
-                  See all projects
-                  <ArrowRight
-                    size={16}
-                    className="transition-transform duration-300 group-hover:translate-x-1"
-                  />
-                </Link>
-              </Reveal>
+                      </Link>
+                    </TiltCard>
+                  </motion.div>
+                );
+              })}
             </div>
+
+            <Reveal delay={0.4}>
+              <Link
+                href="/projects"
+                className="mt-8 inline-flex items-center gap-2 text-[15px] font-semibold text-[#d4b06a] hover:text-[#e4c789]"
+              >
+                See all projects
+                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Reveal>
           </div>
         </div>
       </Container>

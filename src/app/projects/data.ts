@@ -111,4 +111,120 @@ export const projects = [
 
     gallery: ["/brajmargimage.png", "/brajmarg1.png"],
   },
+  {
+    slug: "rajasthan-stone-gallery",
+
+    title: "Rajasthan Stone Gallery",
+
+    category: "Business Website",
+
+    subtitle:
+      "A premium website designed to showcase marble, granite, and architectural stone collections with a modern digital experience.",
+
+    image: "/rajasthanstonegallery.jpg",
+
+    heroImage: "/rajasthanstonegallery.jpg",
+
+    link: "https://www.rajasthanstonegallery.com/",
+
+    description:
+      "A premium website designed to showcase marble, granite, and architectural stone collections with a modern digital experience.",
+
+    overview:
+      "We created a visually refined and performance-focused website that represents Rajasthan Stone Gallery's premium brand identity while improving accessibility and customer engagement.",
+
+    challenge:
+      "The client needed a professional online presence that could effectively present products, strengthen brand perception, and provide a seamless browsing experience across devices.",
+
+    solution:
+      "Built a responsive and elegant website with clean layouts, optimized performance, intuitive navigation, and a premium visual experience aligned with the brand.",
+
+    results: [
+      {
+        value: "100%",
+        label: "Responsive Design",
+      },
+      {
+        value: "Fast",
+        label: "Page Performance",
+      },
+      {
+        value: "Premium",
+        label: "Brand Experience",
+      },
+    ],
+
+    highlights: [
+      "Modern premium UI design",
+      "Responsive across all devices",
+      "Optimized performance",
+      "Product showcase sections",
+      "SEO-friendly architecture",
+      "Smooth user experience",
+    ],
+
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+
+    process: ["Research", "UI Design", "Development", "Optimization", "Testing", "Launch"],
+
+    gallery: ["/rajasthanstonegallery.jpg", "/rsg-1.jpg", "/rsg-2.jpg", "/rsg-3.jpg", "/rsg-4.jpg"],
+  },
+  {
+    slug: "bellybento",
+
+    title: "BellyBento",
+
+    category: "Food Discovery Platform",
+
+    subtitle:
+      "A modern platform connecting users with trusted homemade tiffin providers for fresh daily meal delivery.",
+
+    image: "/bellybento.jpg",
+
+    heroImage: "/bellybento.jpg",
+
+    link: "https://bellybento.com/",
+
+    description:
+      "Designed and developed a modern platform for BellyBento that simplifies discovering and connecting with local homemade tiffin providers.",
+
+    overview:
+      "We built BellyBento as a clean, user-focused digital experience that helps customers discover trusted tiffin providers while enabling food providers to grow their reach online.",
+
+    challenge:
+      "Users often struggle to find reliable homemade meal services, while local providers lack a structured platform to showcase and manage their offerings.",
+
+    solution:
+      "Created a responsive and intuitive platform with clear user flows, provider onboarding, optimized performance, and a modern interface focused on simplicity and trust.",
+
+    results: [
+      {
+        value: "100%",
+        label: "Responsive Design",
+      },
+      {
+        value: "Fast",
+        label: "User Experience",
+      },
+      {
+        value: "Dual",
+        label: "User Flow",
+      },
+    ],
+
+    highlights: [
+      "Customer & provider onboarding",
+      "Modern landing page experience",
+      "Mobile-first responsive design",
+      "Clean UI and navigation",
+      "Optimized performance",
+      "Scalable architecture",
+    ],
+
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+
+    process: ["Research", "Wireframing", "UI Design", "Development", "Testing", "Launch"],
+
+    gallery: ["/bellybento.jpg", "/bellybento-1.jpg", "/bellybento-2.jpg", "/bellybento-3.jpg"],
+  },
 ];

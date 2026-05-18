@@ -1,4 +1,4 @@
-import { MessageCircle, ShieldCheck, Workflow, Wrench, Handshake } from "lucide-react";
+import { MessageCircle, ShieldCheck, Workflow, Wrench, Handshake, Sparkles } from "lucide-react";
 
 export const values = [
   {
@@ -25,6 +25,11 @@ export const values = [
     title: "Long-Term Partnerships",
     text: "We aim to become a trusted technical partner, not just another temporary vendor.",
     icon: Handshake,
+  },
+  {
+    title: "Attention to Detail",
+    text: "Small details shape great products. We focus on polish, usability, and performance because quality is built through consistency.",
+    icon: Sparkles,
   },
 ];
 

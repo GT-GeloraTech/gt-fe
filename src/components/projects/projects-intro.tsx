@@ -1,9 +1,9 @@
 export function ProjectsIntro() {
   return (
-    <section className="px-6 pb-32">
-      <div className="mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.02] px-8 py-16 md:px-20 md:py-24">
+    <section className="px-6 pb-16">
+      <div className="mx-auto max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.02] px-8 py-12 md:px-20 md:py-16">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-primary mb-4 text-xs font-medium tracking-[0.2em] uppercase">
+          <p className="text-primary mb-3 text-xs font-medium tracking-[0.2em] uppercase">
             Our Approach
           </p>
 
@@ -13,7 +13,7 @@ export function ProjectsIntro() {
             for real-world use
           </h2>
 
-          <div className="text-muted mt-10 space-y-8 text-lg leading-9">
+          <div className="text-muted mt-6 space-y-5 text-lg leading-8">
             <p>
               We focus on creating systems businesses rely on every day — platforms that support
               operations, customer workflows, internal management, automation, and long-term
