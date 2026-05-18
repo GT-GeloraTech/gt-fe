@@ -1,10 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { notFound } from "next/navigation";
 import { services } from "../data";
 import { ArrowRight, Check } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import OrbitTech from "@/components/ui/orbit-tech";
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -224,30 +226,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               </div>
 
               {/* Orbit ring */}
-              <div className="absolute h-[520px] w-[520px] rounded-full border border-white/5" />
-
-              {service.technologies.map((tech, index) => {
-                const angle = (index / service.technologies.length) * 2 * Math.PI;
-
-                const radius = 260;
-
-                const x = Math.cos(angle) * radius;
-                const y = Math.sin(angle) * radius;
-
-                return (
-                  <div
-                    key={tech}
-                    style={{
-                      transform: `translate(${x}px, ${y}px)`,
-                    }}
-                    className="group absolute transition-all duration-500 hover:z-50 hover:scale-110"
-                  >
-                    <div className="group-hover:border-primary/40 group-hover:bg-primary/10 rounded-full border border-white/10 bg-white/[0.03] px-8 py-4 backdrop-blur-xl transition-all duration-500 group-hover:shadow-[0_0_60px_rgba(255,255,255,0.05)]">
-                      <span className="font-medium">{tech}</span>
-                    </div>
-                  </div>
-                );
-              })}
+              <OrbitTech technologies={service.technologies} />
             </div>
           </div>
         </section>
