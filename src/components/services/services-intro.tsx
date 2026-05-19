@@ -1,10 +1,10 @@
 export function ServicesIntro() {
   return (
-    <section className="px-6 py-12">
+    <section className="px-6">
       <div className="mx-auto max-w-5xl">
-        <div className="rounded-[36px] border border-white/8 bg-white/[0.02] px-8 py-16 backdrop-blur-sm md:px-20 md:py-24">
+        <div className="rounded-[36px] border border-white/8 bg-white/[0.02] px-8 py-12 backdrop-blur-sm md:px-20 md:py-16">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-primary mb-4 text-sm font-medium tracking-[0.2em] uppercase">
+            <p className="text-primary mb-3 text-sm font-medium tracking-[0.2em] uppercase">
               Our Approach
             </p>
 
@@ -12,7 +12,7 @@ export function ServicesIntro() {
               Technology partnerships built for long-term growth
             </h2>
 
-            <div className="text-muted mt-10 space-y-8 text-lg leading-9">
+            <div className="text-muted mt-6 space-y-5 text-lg leading-8">
               <p>
                 Most businesses don&apos;t need multiple agencies handling different parts of a
                 project. They need one technical team capable of strategy, development,
