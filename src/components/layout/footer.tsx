@@ -4,12 +4,22 @@ import Link from "next/link";
 
 import { motion } from "framer-motion";
 
-import { Instagram, Twitter, Linkedin, Github } from "lucide-react";
+import { Instagram, Linkedin } from "lucide-react";
 import Image from "next/image";
 
 import { navigation } from "@/constants/navigation";
 
 import { Reveal } from "@/components/common/reveal/reveal";
+
+// X (formerly Twitter) logo — monochrome glyph that inherits `currentColor`
+// so it matches the gold colour + hover of the other footer social icons.
+function XIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" className={className}>
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
+}
 import { Container } from "../common/container";
 import { services } from "@/app/service/data";
 
@@ -62,12 +72,12 @@ export function Footer() {
                     href: "https://www.instagram.com/geloratech/",
                   },
                   {
-                    icon: Twitter,
-                    href: "https://x.com/GeloraTech",
+                    icon: XIcon,
+                    href: "https://x.com/geloratech",
                   },
                   {
                     icon: Linkedin,
-                    href: "https://linkedin.com/company/yourcompany",
+                    href: "https://www.linkedin.com/company/gelora-tech",
                   },
                   // {
                   //   icon: Github,
@@ -183,31 +193,34 @@ export function Footer() {
               <h4 className="text-[18px] font-bold text-white">Contact Us</h4>
 
               <div className="mt-5 space-y-4">
-                {["contact@geloratech.com", "+1 (555) 123-4567", "Silicon Valley, CA 94025"].map(
-                  (item, index) => (
-                    <motion.p
-                      key={item}
-                      initial={{
-                        opacity: 0,
-                        x: -10,
-                      }}
-                      whileInView={{
-                        opacity: 1,
-                        x: 0,
-                      }}
-                      viewport={{
-                        once: true,
-                      }}
-                      transition={{
-                        duration: 0.5,
-                        delay: index * 0.06,
-                      }}
-                      className="text-[15px] text-zinc-400"
-                    >
-                      {item}
-                    </motion.p>
-                  ),
-                )}
+                {[
+                  "hello@geloratech.com",
+                  "+91-8219601611",
+                  "+91-8233662031",
+                  "Udaipur, Rajasthan",
+                ].map((item, index) => (
+                  <motion.p
+                    key={item}
+                    initial={{
+                      opacity: 0,
+                      x: -10,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      x: 0,
+                    }}
+                    viewport={{
+                      once: true,
+                    }}
+                    transition={{
+                      duration: 0.5,
+                      delay: index * 0.06,
+                    }}
+                    className="text-[15px] text-zinc-400"
+                  >
+                    {item}
+                  </motion.p>
+                ))}
 
                 {/* <motion.p
                   whileHover={{

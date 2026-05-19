@@ -3,10 +3,8 @@
 import { useRef, useState } from "react";
 
 import Image from "next/image";
-import Link from "next/link";
 
 import { motion, useScroll, useMotionValueEvent, useReducedMotion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 
 import { projects } from "@/constants/projects";
 
@@ -74,13 +72,9 @@ export function ProjectsSection() {
                     ease: [0.16, 1, 0.3, 1],
                   }}
                 >
-                  <Link
-                    href={project.link}
-                    target={project.link.startsWith("http") ? "_blank" : undefined}
-                    className="block h-full"
-                  >
+                  <div className="block h-full">
                     <Card
-                      className={`group relative cursor-pointer overflow-hidden rounded-[28px] border bg-[#3a173f]/90 p-0 transition-all duration-300 hover:border-[#d4b06a]/35 hover:shadow-[0_0_40px_rgba(212,176,106,0.12)] ${
+                      className={`group relative overflow-hidden rounded-[28px] border bg-[#3a173f]/90 p-0 transition-all duration-300 hover:border-[#d4b06a]/35 hover:shadow-[0_0_40px_rgba(212,176,106,0.12)] ${
                         isActive
                           ? "border-[#d4b06a]/35 shadow-[0_0_40px_rgba(212,176,106,0.12)]"
                           : "border-[#d4b06a]/15"
@@ -121,17 +115,6 @@ export function ProjectsSection() {
                             backgroundSize: "22px 22px",
                           }}
                         />
-
-                        {/* Hover / active Button */}
-                        <div
-                          className={`absolute inset-0 z-10 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-100 ${
-                            isActive ? "opacity-100" : "opacity-0"
-                          }`}
-                        >
-                          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#d4b06a] text-black shadow-2xl">
-                            <ArrowUpRight className="h-6 w-6" />
-                          </div>
-                        </div>
                       </div>
 
                       {/* Bottom Content */}
@@ -153,7 +136,7 @@ export function ProjectsSection() {
                         </div>
                       </div>
                     </Card>
-                  </Link>
+                  </div>
                 </motion.div>
               </Reveal>
             );

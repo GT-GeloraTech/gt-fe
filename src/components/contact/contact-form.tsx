@@ -279,6 +279,10 @@ export function ContactForm() {
                       className="text-primary underline-offset-2 hover:underline"
                     >
                       Privacy Policy
+                    </Link>{" "}
+                    and{" "}
+                    <Link href="/terms" className="text-primary underline-offset-2 hover:underline">
+                      Terms &amp; Conditions
                     </Link>
                     .
                   </span>

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import { ArrowRight, ArrowUpRight, Workflow, TrendingUp, LifeBuoy, Code2 } from "lucide-react";
+import { ArrowRight, Workflow, TrendingUp, LifeBuoy, Code2 } from "lucide-react";
 
 import { projects } from "../../../app/projects/data";
 
@@ -145,7 +145,7 @@ export function AboutSection() {
                     }}
                   >
                     <TiltCard intensity={6}>
-                      <Link href={project.link}>
+                      <div>
                         <div className="group relative flex h-[460px] flex-col overflow-hidden rounded-[30px] border border-[#d4b06a]/10 bg-[#34153b] transition-all duration-700 hover:border-[#d4b06a]/40 hover:shadow-[0_0_60px_rgba(212,176,106,.15)]">
                           <div className="relative h-[260px] shrink-0 overflow-hidden">
                             <AnimatePresence mode="wait">
@@ -178,10 +178,6 @@ export function AboutSection() {
 
                             <div className="absolute inset-0 bg-gradient-to-t from-[#1d0c22] via-transparent to-transparent" />
 
-                            <div className="absolute top-5 right-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#d4b06a] text-black opacity-0 transition-all group-hover:opacity-100">
-                              <ArrowUpRight size={18} />
-                            </div>
-
                             <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
                               {project.gallery.map((_, i) => (
                                 <div
@@ -206,7 +202,7 @@ export function AboutSection() {
                             </p>
                           </div>
                         </div>
-                      </Link>
+                      </div>
                     </TiltCard>
                   </motion.div>
                 );

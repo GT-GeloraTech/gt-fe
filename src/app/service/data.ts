@@ -31,7 +31,16 @@ export const services = {
       "Support & Scaling",
     ],
 
-    technologies: ["Next.js", "React", "Node.js", "TypeScript", "PostgreSQL", "AWS"],
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "Prisma",
+      "AWS",
+    ],
 
     faq: [
       {
@@ -74,7 +83,16 @@ export const services = {
 
     process: ["Research", "Wireframes", "Design", "Development", "Testing", "Launch"],
 
-    technologies: ["React Native", "Flutter", "Firebase", "Supabase", "TypeScript"],
+    technologies: [
+      "React Native",
+      "Flutter",
+      "Swift",
+      "Kotlin",
+      "Expo",
+      "Firebase",
+      "TypeScript",
+      "GraphQL",
+    ],
 
     faq: [
       {
@@ -119,7 +137,16 @@ export const services = {
       "Monitoring",
     ],
 
-    technologies: ["AWS", "Docker", "Kubernetes", "Terraform", "GitHub Actions"],
+    technologies: [
+      "AWS",
+      "Azure",
+      "Google Cloud",
+      "Docker",
+      "Kubernetes",
+      "Terraform",
+      "GitHub Actions",
+      "CI/CD",
+    ],
 
     faq: [
       {
@@ -165,7 +192,16 @@ export const services = {
       "Optimization",
     ],
 
-    technologies: ["OpenAI", "LangChain", "n8n", "Node.js", "Python"],
+    technologies: [
+      "Python",
+      "OpenAI",
+      "LangChain",
+      "RAG / Vector DB",
+      "TensorFlow",
+      "Hugging Face",
+      "n8n",
+      "Node.js",
+    ],
 
     faq: [
       {
@@ -200,7 +236,16 @@ export const services = {
 
     process: ["Assessment", "Threat Analysis", "Planning", "Implementation", "Monitoring"],
 
-    technologies: ["Cloudflare", "AWS Security", "SIEM", "Firewalls"],
+    technologies: [
+      "Zero Trust",
+      "SIEM / SOC",
+      "Penetration Testing",
+      "OWASP",
+      "WAF / Firewalls",
+      "IAM",
+      "Cloudflare",
+      "AWS Security",
+    ],
 
     faq: [
       {
@@ -234,7 +279,16 @@ export const services = {
 
     process: ["Discovery", "Research", "Strategy", "Planning", "Execution"],
 
-    technologies: ["AWS", "Next.js", "Node.js", "Cloud Platforms"],
+    technologies: [
+      "Cloud Architecture",
+      "System Design",
+      "DevOps",
+      "Microservices",
+      "AWS / Azure / GCP",
+      "Agile / Scrum",
+      "Security & Compliance",
+      "Data & Analytics",
+    ],
 
     faq: [
       {

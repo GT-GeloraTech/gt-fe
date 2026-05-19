@@ -56,10 +56,10 @@ export function ContactSection() {
                 </motion.div>
 
                 <a
-                  href="mailto:contact@geloratech.com"
+                  href="mailto:hello@geloratech.com"
                   className="text-[15px] font-medium text-zinc-400 transition-colors duration-300 hover:text-[#d4b06a] sm:text-[16px]"
                 >
-                  contact@geloratech.com
+                  hello@geloratech.com
                 </a>
               </div>
             </div>

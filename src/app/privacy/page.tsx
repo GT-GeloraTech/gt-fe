@@ -171,7 +171,7 @@ export default function PrivacyPolicyPage() {
                     <b>Business Location </b>: India
                   </p>
                   <p>
-                    <b>Contact Email </b>: contact@geloratech.com
+                    <b>Contact Email </b>: hello@geloratech.com
                   </p>
                 </PolicySection>
 

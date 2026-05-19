@@ -1,9 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
-import { motion } from "framer-motion";
 import { notFound } from "next/navigation";
 import { services } from "../data";
-import { ArrowRight, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import OrbitTech from "@/components/ui/orbit-tech";
@@ -32,24 +30,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
               <h1 className="mb-6 text-6xl leading-tight font-bold md:text-7xl">{service.title}</h1>
 
-              <p className="text-muted mb-8 text-xl leading-9">{service.subtitle}</p>
-
-              <div className="flex gap-4">
-                <Link
-                  href="/contact"
-                  className="flex items-center gap-2 rounded-full bg-white px-8 py-4 text-black"
-                >
-                  Start Project
-                  <ArrowRight size={18} />
-                </Link>
-
-                <Link
-                  href="/projects"
-                  className="inline-flex rounded-full border border-white/10 px-8 py-4"
-                >
-                  View Portfolio
-                </Link>
-              </div>
+              <p className="text-muted text-xl leading-9">{service.subtitle}</p>
             </div>
 
             <div className="glass-card border-primary/10 rounded-[40px] border p-8">
