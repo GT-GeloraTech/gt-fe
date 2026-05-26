@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export function ContactHero() {
   return (
-    <section className="relative overflow-hidden px-6 pt-32 pb-28">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6">
       {/* background grid */}
       <div className="absolute inset-0 opacity-[0.03]">
         <div

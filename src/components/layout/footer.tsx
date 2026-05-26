@@ -4,8 +4,8 @@ import Link from "next/link";
 
 import { motion } from "framer-motion";
 
-import { Instagram, Linkedin } from "lucide-react";
 import Image from "next/image";
+import { Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 
 import { navigation } from "@/constants/navigation";
 
@@ -188,51 +188,66 @@ export function Footer() {
           </Reveal>
 
           {/* Contact */}
+          {/* Contact */}
           <Reveal delay={0.3}>
             <div>
-              <h4 className="text-[18px] font-bold text-white">Contact Us</h4>
+              <h4 className="text-[17px] font-semibold text-white">Contact Us</h4>
 
-              <div className="mt-5 space-y-4">
+              <div className="mt-6 space-y-4">
                 {[
-                  "hello@geloratech.com",
-                  "+91-8219601611",
-                  "+91-8233662031",
-                  "Udaipur, Rajasthan",
-                ].map((item, index) => (
-                  <motion.p
-                    key={item}
-                    initial={{
-                      opacity: 0,
-                      x: -10,
-                    }}
-                    whileInView={{
-                      opacity: 1,
-                      x: 0,
-                    }}
-                    viewport={{
-                      once: true,
-                    }}
-                    transition={{
-                      duration: 0.5,
-                      delay: index * 0.06,
-                    }}
-                    className="text-[15px] text-zinc-400"
-                  >
-                    {item}
-                  </motion.p>
-                ))}
+                  {
+                    icon: Mail,
+                    content: "hello@geloratech.com",
+                    href: "mailto:hello@geloratech.com",
+                  },
+                  {
+                    icon: Phone,
+                    content: "+91-8219601611",
+                    href: "tel:+918219601611",
+                  },
+                  {
+                    icon: Phone,
+                    content: "+91-8233662031",
+                    href: "tel:+918233662031",
+                  },
+                  {
+                    icon: MapPin,
+                    content: "Udaipur, Rajasthan",
+                  },
+                ].map((item, index) => {
+                  const Icon = item.icon;
 
-                {/* <motion.p
-                  whileHover={{
-                    x: 3,
-                  }}
-                  transition={{
-                    duration: 0.25,
-                  }}
-                  className="pt-4 text-[15px] font-medium text-[#d4b06a]"
-                >
-                  Available 24/7
-                </motion.p> */}
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        duration: 0.45,
+                        delay: index * 0.06,
+                      }}
+                      className="flex items-center gap-3"
+                    >
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#d4b06a]/15 bg-[#3a173f]/50 text-[#d4b06a]">
+                        <Icon className="h-4 w-4" />
+                      </div>
+
+                      <div>
+                        {item.href ? (
+                          <a
+                            href={item.href}
+                            className="text-[14px] text-zinc-400 transition-colors duration-300 hover:text-[#d4b06a]"
+                          >
+                            {item.content}
+                          </a>
+                        ) : (
+                          <p className="text-[14px] text-zinc-400">{item.content}</p>
+                        )}
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
           </Reveal>
@@ -250,7 +265,7 @@ export function Footer() {
                   href: "/privacy",
                 },
                 {
-                  label: "Terms of Service",
+                  label: "Terms & Conditions",
                   href: "/terms",
                 },
                 // {

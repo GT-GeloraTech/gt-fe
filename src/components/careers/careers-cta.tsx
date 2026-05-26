@@ -21,9 +21,16 @@ export function CareersCTA() {
 
           <Link
             href="/uploadresume"
-            className="bg-primary text-background mt-10 inline-flex items-center rounded-full px-10 py-4 font-medium transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-[0_0_30px_rgba(212,176,106,0.35)]"
+            className="group relative mt-10 inline-flex items-center justify-center overflow-hidden rounded-full border border-[#d4b06a]/30 px-10 py-4 font-medium text-[#d4b06a] transition-all duration-500 hover:-translate-y-1 hover:scale-105 hover:border-[#d4b06a]/60 hover:shadow-[0_0_30px_rgba(212,176,106,0.35)]"
           >
-            Share Your Resume
+            {/* animated background */}
+            <span className="absolute inset-0 z-0 origin-left scale-x-0 bg-[#d4b06a] transition-transform duration-500 ease-out group-hover:scale-x-100" />
+
+            {/* content */}
+            <span className="relative z-10 flex items-center gap-2 transition-colors duration-500 group-hover:text-black">
+              Share Your Resume
+              <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
+            </span>
           </Link>
         </motion.div>
       </div>

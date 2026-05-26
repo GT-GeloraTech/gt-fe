@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export function ServicesHero() {
   return (
-    <section className="relative overflow-hidden px-6 pt-40 pb-32">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6">
       <div className="mx-auto max-w-6xl text-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

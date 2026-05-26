@@ -39,7 +39,7 @@ export const services = {
       "Tailwind CSS",
       "PostgreSQL",
       "Prisma",
-      "AWS",
+      "DigitalOcean",
     ],
 
     faq: [
@@ -89,7 +89,7 @@ export const services = {
       "Swift",
       "Kotlin",
       "Expo",
-      "Firebase",
+      "Supabase",
       "TypeScript",
       "GraphQL",
     ],
@@ -121,7 +121,7 @@ export const services = {
       "Cloud architecture, deployment pipelines, infrastructure management and scalable backend environments for growing applications.",
 
     features: [
-      "AWS Deployment",
+      "Cloud Deployment",
       "CI/CD Pipelines",
       "Containerization",
       "Server Management",
@@ -138,9 +138,9 @@ export const services = {
     ],
 
     technologies: [
-      "AWS",
-      "Azure",
-      "Google Cloud",
+      "DigitalOcean",
+      "Vercel",
+      "Cloudflare",
       "Docker",
       "Kubernetes",
       "Terraform",
@@ -178,7 +178,7 @@ export const services = {
       "AI Agents",
       "Workflow Automation",
       "Chatbots",
-      "OpenAI Integrations",
+      "AI Integrations",
       "Data Pipelines",
       "CRM Automation",
     ],
@@ -194,9 +194,9 @@ export const services = {
 
     technologies: [
       "Python",
-      "OpenAI",
+      "Ollama",
       "LangChain",
-      "RAG / Vector DB",
+      "Pinecone",
       "TensorFlow",
       "Hugging Face",
       "n8n",
@@ -241,10 +241,10 @@ export const services = {
       "SIEM / SOC",
       "Penetration Testing",
       "OWASP",
-      "WAF / Firewalls",
+      "Cloudflare WAF",
       "IAM",
-      "Cloudflare",
-      "AWS Security",
+      "Tailscale",
+      "Fail2Ban",
     ],
 
     faq: [
@@ -284,7 +284,7 @@ export const services = {
       "System Design",
       "DevOps",
       "Microservices",
-      "AWS / Azure / GCP",
+      "DigitalOcean",
       "Agile / Scrum",
       "Security & Compliance",
       "Data & Analytics",

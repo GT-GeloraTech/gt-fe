@@ -119,13 +119,17 @@ export function ServicesSection() {
           <div className="mt-12 flex justify-center sm:mt-14">
             <Link
               href="/service"
-              className="group inline-flex items-center gap-3 rounded-full border border-[#d4b06a]/30 bg-[#d4b06a]/5 px-7 py-4 text-[15px] font-semibold text-[#d4b06a] transition-all duration-300 hover:border-[#d4b06a]/60 hover:bg-[#d4b06a]/10 sm:text-[16px]"
+              className="group relative inline-flex items-center overflow-hidden rounded-full border border-[#d4b06a]/30 bg-[#d4b06a]/5 px-7 py-4 transition-all duration-500 hover:border-[#d4b06a]/60 sm:text-[16px]"
             >
-              Explore all services
-              <ArrowRight
-                size={18}
-                className="transition-transform duration-300 group-hover:translate-x-1"
-              />
+              <div className="absolute inset-0 origin-left scale-x-0 bg-[#d4b06a] transition-transform duration-500 ease-out group-hover:scale-x-100" />
+
+              <span className="relative z-10 flex items-center gap-3 text-[15px] font-semibold text-[#d4b06a] transition-colors duration-500 group-hover:text-black sm:text-[16px]">
+                Explore all services
+                <ArrowRight
+                  size={18}
+                  className="transition-transform duration-500 group-hover:translate-x-1"
+                />
+              </span>
             </Link>
           </div>
         </Reveal>
