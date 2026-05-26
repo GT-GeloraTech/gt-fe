@@ -61,9 +61,18 @@ export function JobsSection() {
 
               <Link
                 href={`/careers/${job.title.toLowerCase().replace(/\s+/g, "-")}`}
-                className="bg-primary text-background mt-6 inline-flex rounded-full px-8 py-4 font-medium transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl md:mt-0"
+                className="group relative mt-6 inline-flex items-center justify-center overflow-hidden rounded-full border border-[#d4b06a]/30 px-8 py-4 font-medium text-[#d4b06a] transition-all duration-500 hover:-translate-y-1 hover:scale-105 hover:border-[#d4b06a]/60 hover:shadow-2xl md:mt-0"
               >
-                Apply Now
+                {/* animated background */}
+                <span className="absolute inset-0 z-0 origin-left scale-x-0 bg-[#d4b06a] transition-transform duration-500 ease-out group-hover:scale-x-100" />
+
+                {/* content */}
+                <span className="relative z-10 flex items-center gap-2 transition-colors duration-500 group-hover:text-black">
+                  Apply Now
+                  <span className="transition-transform duration-500 group-hover:translate-x-1">
+                    →
+                  </span>
+                </span>
               </Link>
             </motion.div>
           ))}

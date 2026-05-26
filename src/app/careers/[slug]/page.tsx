@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, BriefcaseBusiness, Check, MapPinned, Users } from "lucide-react";
@@ -199,13 +200,19 @@ export default async function JobDetailsPage({ params }: Props) {
                   {/* CTA */}
                   <Link
                     href="/uploadresume"
-                    className="group mt-12 flex h-14 w-full items-center justify-center gap-3 rounded-full bg-white px-6 text-sm font-semibold text-black transition-all duration-300 hover:scale-[1.01] hover:bg-zinc-200"
+                    className="group relative mt-12 flex h-14 w-full items-center justify-center gap-3 overflow-hidden rounded-full border border-[#d4b06a]/30 px-6 text-sm font-semibold text-[#d4b06a] transition-all duration-500 hover:scale-[1.01] hover:border-[#d4b06a]/60"
                   >
-                    Apply For This Position
-                    <ArrowRight
-                      size={18}
-                      className="transition-transform duration-300 group-hover:translate-x-1"
-                    />
+                    {/* animated background */}
+                    <span className="absolute inset-0 z-0 origin-left scale-x-0 bg-[#d4b06a] transition-transform duration-500 ease-out group-hover:scale-x-100" />
+
+                    {/* content */}
+                    <span className="relative z-10 flex items-center gap-3 transition-colors duration-500 group-hover:text-black">
+                      Apply For This Position
+                      <ArrowRight
+                        size={18}
+                        className="transition-transform duration-500 group-hover:translate-x-1"
+                      />
+                    </span>
                   </Link>
                 </div>
               </motion.div>
@@ -233,7 +240,7 @@ export default async function JobDetailsPage({ params }: Props) {
                   Responsibilities
                 </p>
 
-                <h2 className="mt-4 text-4xl font-semibold md:text-5xl">What You&apos;ll Do</h2>
+                <h2 className="mt-4 text-4xl font-semibold md:text-5xl">What You&apos; ll Do</h2>
               </div>
 
               <div className="space-y-5">

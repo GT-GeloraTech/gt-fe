@@ -105,14 +105,19 @@ export function AboutSection() {
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 <Link
                   href="/about"
-                  className="group inline-flex items-center gap-3 rounded-full bg-[#d4b06a] px-7 py-4 text-[15px] font-semibold text-black transition-all duration-300 hover:bg-[#ddbc79] sm:text-[16px]"
+                  className="group relative inline-flex items-center overflow-hidden rounded-full border border-[#d4b06a]/30 px-7 py-4 transition-all duration-500 hover:border-[#d4b06a]/60 sm:text-[16px]"
                 >
-                  Learn more about us
-                  <ArrowRight
-                    size={18}
-                    className="transition-transform duration-300 group-hover:translate-x-1"
-                  />
+                  <div className="absolute inset-0 origin-left scale-x-0 bg-[#d4b06a] transition-transform duration-500 ease-out group-hover:scale-x-100" />
+
+                  <span className="relative z-10 flex items-center gap-3 text-[15px] font-semibold text-[#d4b06a] transition-colors duration-500 group-hover:text-black sm:text-[16px]">
+                    Learn more about us
+                    <ArrowRight
+                      size={18}
+                      className="transition-transform duration-500 group-hover:translate-x-1"
+                    />
+                  </span>
                 </Link>
+
                 <span className="text-[14px] text-zinc-500">Founded 2026 · Udaipur, India</span>
               </div>
             </Reveal>

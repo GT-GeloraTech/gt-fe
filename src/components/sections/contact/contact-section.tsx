@@ -43,24 +43,26 @@ export function ContactSection() {
                   className="w-full sm:w-auto"
                 >
                   <Link href="/contact?focus=form" className="block">
-                    <Button className="group h-[54px] w-full rounded-[18px] bg-[#d4b06a] px-8 text-[16px] font-semibold text-black shadow-[0_0_30px_rgba(212,176,106,0.15)] hover:bg-[#ddbc79] sm:h-[58px] sm:min-w-[240px] sm:rounded-[20px] sm:text-[17px]">
-                      <span className="flex items-center gap-3">
+                    <Button className="group relative h-[54px] w-full overflow-hidden rounded-[18px] border border-[#d4b06a]/30 bg-transparent px-8 text-[16px] font-semibold text-[#d4b06a] shadow-[0_0_30px_rgba(212,176,106,0.08)] transition-all duration-500 hover:border-[#d4b06a]/60 sm:h-[58px] sm:min-w-[240px] sm:rounded-[20px] sm:text-[17px]">
+                      <div className="absolute inset-0 origin-left scale-x-0 bg-[#d4b06a] transition-transform duration-500 ease-out group-hover:scale-x-100" />
+
+                      <span className="relative z-10 flex items-center gap-3 transition-colors duration-500 group-hover:text-black">
                         Get In Touch
                         <ArrowRight
                           size={20}
-                          className="transition-transform duration-300 group-hover:translate-x-1"
+                          className="transition-transform duration-500 group-hover:translate-x-1"
                         />
                       </span>
                     </Button>
                   </Link>
                 </motion.div>
 
-                <a
+                {/* <a
                   href="mailto:hello@geloratech.com"
                   className="text-[15px] font-medium text-zinc-400 transition-colors duration-300 hover:text-[#d4b06a] sm:text-[16px]"
                 >
                   hello@geloratech.com
-                </a>
+                </a> */}
               </div>
             </div>
           </div>

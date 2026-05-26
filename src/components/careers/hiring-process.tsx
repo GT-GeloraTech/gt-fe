@@ -70,6 +70,7 @@ export function HiringProcess() {
                     <span className="text-primary text-[68px] leading-none font-light tracking-tight">
                       {item.number}
                     </span>
+
                     <span className="glass-card text-primary rounded-full px-5 py-2 text-sm font-medium">
                       {item.label}
                     </span>
@@ -100,16 +101,6 @@ export function HiringProcess() {
                       />
                     </div>
                   </div>
-
-                  <motion.div
-                    animate={{ y: [0, -6, 0] }}
-                    transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-                    className={`premium-shadow border-primary/20 bg-background-secondary absolute -bottom-5 flex h-20 w-20 items-center justify-center rounded-full border backdrop-blur-xl ${
-                      reverse ? "-left-5" : "-right-5"
-                    }`}
-                  >
-                    <span className="text-primary text-2xl font-semibold">{item.number}</span>
-                  </motion.div>
                 </motion.div>
               </motion.div>
             );

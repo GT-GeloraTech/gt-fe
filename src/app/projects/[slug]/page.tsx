@@ -50,10 +50,17 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
                 <Link
                   href="/contact"
-                  className="hover:border-primary/40 inline-flex items-center gap-2 rounded-full border border-white/10 px-8 py-4 transition-all duration-300 hover:translate-x-1"
+                  className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-[#d4b06a]/30 px-8 py-4 text-[#d4b06a] transition-all duration-500 hover:translate-x-1 hover:border-[#d4b06a]/60"
                 >
-                  Contact Us
-                  <ArrowRight size={18} />
+                  <div className="absolute inset-0 origin-left scale-x-0 bg-[#d4b06a] transition-transform duration-500 ease-out group-hover:scale-x-100" />
+
+                  <span className="relative z-10 flex items-center gap-2 transition-colors duration-500 group-hover:text-black">
+                    Contact Us
+                    <ArrowRight
+                      size={18}
+                      className="transition-transform duration-500 group-hover:translate-x-1"
+                    />
+                  </span>
                 </Link>
               </div>
             </div>
@@ -346,9 +353,16 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
             <Link
               href="/contact?focus=form"
-              className="mt-10 inline-flex items-center rounded-full bg-white px-8 py-4 text-black transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]"
+              className="group relative mt-10 inline-flex items-center overflow-hidden rounded-full border border-[#d4b06a]/30 px-8 py-4 text-[#d4b06a] transition-all duration-500 hover:-translate-y-1 hover:scale-[1.02] hover:border-[#d4b06a]/60"
             >
-              Start a Project
+              <div className="absolute inset-0 origin-left scale-x-0 bg-[#d4b06a] transition-transform duration-500 ease-out group-hover:scale-x-100" />
+
+              <span className="relative z-10 flex items-center gap-2 transition-colors duration-500 group-hover:text-black">
+                Start a Project
+                <span className="transition-transform duration-500 group-hover:translate-x-1">
+                  →
+                </span>
+              </span>
             </Link>
           </div>
         </section>

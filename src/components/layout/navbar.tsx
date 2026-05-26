@@ -42,10 +42,8 @@ export function Navbar() {
       >
         {/* Bar — plain at top, floating blurred pill when scrolled */}
         <div
-          className={`flex items-center justify-between transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-            scrolled
-              ? "h-16 rounded-2xl border border-[#d4b06a]/15 bg-[#2a0f2f]/70 px-4 shadow-[0_12px_40px_rgba(0,0,0,0.45)] backdrop-blur-xl sm:h-[68px] sm:px-6"
-              : "h-20"
+          className={`relative flex items-center justify-between transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            scrolled ? "glass-navbar h-16 rounded-2xl px-4 sm:h-[68px] sm:px-6" : "h-20"
           }`}
         >
           {/* Logo */}
@@ -73,7 +71,11 @@ export function Navbar() {
                   href={item.href}
                   aria-current={active ? "page" : undefined}
                   className={`relative py-1 text-[15px] transition-colors duration-300 ${
-                    active ? "font-semibold text-[#d4b06a]" : "text-zinc-300 hover:text-[#d4b06a]"
+                    active
+                      ? "font-semibold text-[#d4b06a]"
+                      : scrolled
+                        ? "text-white/90 hover:text-[#d4b06a]"
+                        : "text-zinc-300 hover:text-[#d4b06a]"
                   }`}
                 >
                   {item.label}
@@ -92,13 +94,21 @@ export function Navbar() {
           {/* CTA */}
           <Link
             href="/contact?focus=form"
-            className="group inline-flex items-center gap-2 rounded-full bg-[#d4b06a] px-5 py-2.5 text-[14px] font-semibold text-black transition-all duration-300 hover:bg-[#ddbc79] hover:shadow-[0_8px_24px_rgba(212,176,106,0.25)] sm:px-6 sm:py-3 sm:text-[15px]"
+            className={`group relative inline-flex items-center justify-center overflow-hidden rounded-full px-5 py-2.5 sm:px-6 sm:py-3 ${
+              scrolled ? "border border-white/15 bg-white/[0.04]" : "border border-[#d4b06a]/30"
+            }`}
           >
-            Let&apos;s Talk
-            <ArrowRight
-              size={16}
-              className="transition-transform duration-300 group-hover:translate-x-1"
-            />
+            {/* animated background */}
+            <span className="absolute inset-0 z-0 origin-left scale-x-0 bg-[#d4b06a] transition-transform duration-500 ease-out group-hover:scale-x-100" />
+
+            {/* content */}
+            <span className="relative z-10 flex items-center gap-2 text-[14px] font-semibold text-[#d4b06a] transition-colors duration-500 group-hover:text-black sm:text-[15px]">
+              Let&apos;s Talk
+              <ArrowRight
+                size={16}
+                className="transition-transform duration-500 group-hover:translate-x-1"
+              />
+            </span>
           </Link>
         </div>
       </div>
