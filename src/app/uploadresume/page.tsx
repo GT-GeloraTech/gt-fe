@@ -7,6 +7,8 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import { supabase } from "@/lib/supabase";
+import { uploadResume } from "@/lib/uploadResume";
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
 
@@ -33,6 +35,7 @@ export default function UploadResumePage() {
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const [loading, setLoading] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
@@ -79,6 +82,53 @@ export default function UploadResumePage() {
 
     if (!file) return;
 
+    // PDF validation
+    if (file.type !== "application/pdf") {
+      setErrors((prev) => ({
+        ...prev,
+        resume: "Only PDF files are allowed",
+      }));
+
+      return;
+    }
+
+    // Size validation
+    if (file.size > MAX_FILE_SIZE) {
+      setErrors((prev) => ({
+        ...prev,
+        resume: "File size must be under 10MB",
+      }));
+
+      return;
+    }
+
+    setResume(file);
+
+    setErrors((prev) => ({
+      ...prev,
+      resume: "",
+    }));
+  };
+
+  const handleDrop = (e: React.DragEvent<HTMLLabelElement>) => {
+    e.preventDefault();
+    setIsDragging(false);
+
+    const file = e.dataTransfer.files?.[0];
+
+    if (!file) return;
+
+    // PDF validation
+    if (file.type !== "application/pdf") {
+      setErrors((prev) => ({
+        ...prev,
+        resume: "Only PDF files are allowed",
+      }));
+
+      return;
+    }
+
+    // Size validation
     if (file.size > MAX_FILE_SIZE) {
       setErrors((prev) => ({
         ...prev,
@@ -101,20 +151,57 @@ export default function UploadResumePage() {
 
     const isValid = validate();
 
-    if (!isValid) return;
+    if (!isValid || !resume) return;
 
     try {
       setLoading(true);
 
-      await new Promise((resolve) => setTimeout(resolve, 1600));
+      if (!supabase) {
+        throw new Error("Supabase not configured");
+      }
 
-      alert("Application Submitted!");
+      // Upload Resume
+      const resumeUrl = await uploadResume(resume);
 
+      // Save Application
+      const { error } = await supabase.from("job_applications").insert({
+        full_name: form.fullName,
+        email: form.email,
+        phone: form.phone,
+
+        location: form.location,
+        job_profile: form.jobProfile,
+
+        experience: form.experience,
+        source: form.source,
+
+        current_ctc: form.currentCTC,
+        expected_ctc: form.expectedCTC,
+
+        notice_period: form.noticePeriod,
+
+        reason: form.reason,
+        message: form.message,
+
+        resume_url: resumeUrl,
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      alert("Application Submitted Successfully!");
+
+      // Reset form
       setForm(initialForm);
 
       setResume(null);
+
+      setErrors({});
     } catch (error) {
       console.error(error);
+
+      alert("Something went wrong.");
     } finally {
       setLoading(false);
     }
@@ -211,7 +298,7 @@ export default function UploadResumePage() {
                   name="fullName"
                   value={form.fullName}
                   onChange={handleChange}
-                  placeholder="John Doe"
+                  placeholder="Full Name"
                   error={errors.fullName}
                 />
 
@@ -221,7 +308,7 @@ export default function UploadResumePage() {
                   type="email"
                   value={form.email}
                   onChange={handleChange}
-                  placeholder="john@example.com"
+                  placeholder="name@example.com"
                   error={errors.email}
                 />
               </div>
@@ -269,7 +356,7 @@ export default function UploadResumePage() {
                   name="location"
                   value={form.location}
                   onChange={handleChange}
-                  placeholder="Pune, India"
+                  placeholder="Location"
                   icon={<MapPin className="h-5 w-5" />}
                 />
               </div>
@@ -284,7 +371,7 @@ export default function UploadResumePage() {
                   name="jobProfile"
                   value={form.jobProfile}
                   onChange={handleChange}
-                  placeholder="Frontend Developer"
+                  placeholder="Job Profile"
                   icon={<Briefcase className="h-5 w-5" />}
                 />
 
@@ -304,7 +391,14 @@ export default function UploadResumePage() {
                   name="source"
                   value={form.source}
                   onChange={handleChange}
-                  options={["Select Source", "LinkedIn", "Website", "Referral", "Instagram"]}
+                  options={[
+                    "Select Source",
+                    "LinkedIn",
+                    "Website",
+                    "Referral",
+                    "Instagram",
+                    "Other",
+                  ]}
                 />
                 {/* upload */}
               </div>
@@ -336,7 +430,7 @@ export default function UploadResumePage() {
                 name="noticePeriod"
                 value={form.noticePeriod}
                 onChange={handleChange}
-                placeholder="30 Days"
+                placeholder="In Days"
               />
 
               <TextAreaField
@@ -361,10 +455,20 @@ export default function UploadResumePage() {
                 </label>
 
                 <label
+                  onDragOver={(e) => {
+                    e.preventDefault();
+                    setIsDragging(true);
+                  }}
+                  onDragLeave={() => {
+                    setIsDragging(false);
+                  }}
+                  onDrop={handleDrop}
                   className={`group relative flex min-h-[240px] w-full cursor-pointer flex-col items-center justify-center overflow-hidden rounded-[28px] border border-dashed transition-all duration-500 ${
                     errors.resume
                       ? "border-red-500/50 bg-red-500/5"
-                      : "border-[#d4b06a]/20 bg-white/[0.02] hover:border-[#d4b06a]/50 hover:bg-white/[0.03]"
+                      : isDragging
+                        ? "border-[#d4b06a] bg-[#d4b06a]/10"
+                        : "border-[#d4b06a]/20 bg-white/[0.02] hover:border-[#d4b06a]/50 hover:bg-white/[0.03]"
                   }`}
                 >
                   {/* glow */}
