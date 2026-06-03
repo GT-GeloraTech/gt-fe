@@ -6,6 +6,9 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { CheckCircle2, ArrowLeft, ArrowRight } from "lucide-react";
 
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";
+import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
+
+import "react-phone-number-input/style.css";
 
 const inquiryOptions = [
   { value: "general", label: "General enquiry" },
@@ -25,7 +28,7 @@ const emptyForm = {
   company: "",
   inquiryType: "general",
   message: "",
-  consent: false,
+  consent: true,
   website: "", // honeypot — must stay empty
 };
 
@@ -52,8 +55,10 @@ export function ContactForm() {
     if (!formData.email.trim()) next.email = "Email is required";
     else if (!emailRegex.test(formData.email)) next.email = "Enter a valid email";
 
-    if (formData.phone.replace(/[\s-]/g, "").length > 0) {
-      if (!/^[+()\d\s-]{6,20}$/.test(formData.phone)) next.phone = "Enter a valid phone number";
+    if (formData.phone) {
+      if (!isValidPhoneNumber(formData.phone)) {
+        next.phone = "Enter a valid phone number";
+      }
     }
 
     if (formData.company.length > 100) next.company = "Company name is too long";
@@ -192,15 +197,35 @@ export function ContactForm() {
               <div className="grid gap-6 md:grid-cols-2">
                 <div>
                   <label className="text-muted mb-3 block text-sm">Phone (Optional)</label>
-                  <input
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    maxLength={20}
-                    autoComplete="tel"
-                    placeholder="+91 98765 43210"
-                    className={`${inputBase} ${fieldBorder(errors.phone)}`}
-                  />
+
+                  <div
+                    className={`rounded-2xl border bg-white/[0.03] transition ${
+                      errors.phone
+                        ? "border-red-500"
+                        : "focus-within:border-primary border-white/10"
+                    }`}
+                  >
+                    <PhoneInput
+                      international
+                      defaultCountry="IN"
+                      countryCallingCodeEditable={false}
+                      value={formData.phone}
+                      onChange={(value) => {
+                        setFormData((prev) => ({
+                          ...prev,
+                          phone: value || "",
+                        }));
+
+                        setErrors((prev) => ({
+                          ...prev,
+                          phone: "",
+                        }));
+                      }}
+                      placeholder="Enter phone number"
+                      className="phone-input"
+                    />
+                  </div>
+
                   {errors.phone && <p className="mt-2 text-sm text-red-400">{errors.phone}</p>}
                 </div>
 
@@ -299,10 +324,20 @@ export function ContactForm() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-primary mt-2 inline-flex items-center gap-2 rounded-2xl px-10 py-5 text-lg font-medium text-black transition hover:scale-[1.03] disabled:cursor-not-allowed disabled:opacity-70"
+                className="group relative mt-2 inline-flex items-center gap-2 overflow-hidden rounded-2xl border border-[#d4b06a]/30 px-10 py-5 text-lg font-medium text-[#d4b06a] transition-all duration-500 hover:scale-[1.03] hover:border-[#d4b06a]/60 disabled:cursor-not-allowed disabled:opacity-70"
               >
-                {isSubmitting ? "Sending..." : "Send Message"}
-                {!isSubmitting && <ArrowRight size={20} />}
+                <div className="absolute inset-0 origin-left scale-x-0 bg-[#d4b06a] transition-transform duration-500 ease-out group-hover:scale-x-100" />
+
+                <span className="relative z-10 flex items-center gap-2 transition-colors duration-500 group-hover:text-black">
+                  {isSubmitting ? "Sending..." : "Send Message"}
+
+                  {!isSubmitting && (
+                    <ArrowRight
+                      size={20}
+                      className="transition-transform duration-500 group-hover:translate-x-1"
+                    />
+                  )}
+                </span>
               </button>
             </form>
           </motion.div>

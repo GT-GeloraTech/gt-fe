@@ -5,6 +5,7 @@ import { Check } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import OrbitTech from "@/components/ui/orbit-tech";
+import Link from "next/link";
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -43,7 +44,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
         {/* STATS */}
 
-        <section className="px-6 pb-24">
+        {/* <section className="px-6 pb-24">
           <div className="glass-card mx-auto grid max-w-7xl gap-8 rounded-[40px] border border-white/5 p-10 md:grid-cols-4">
             {[
               ["Custom", "Solutions"],
@@ -58,7 +59,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               </div>
             ))}
           </div>
-        </section>
+        </section> */}
 
         {/* ABOUT */}
 
@@ -213,61 +214,27 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </section>
 
         {/* CTA */}
+        <section className="px-6 pb-28">
+          <div className="glass-card mx-auto max-w-6xl rounded-[40px] border border-white/10 p-16 text-center">
+            <h2 className="mb-5 text-5xl font-bold">Ready to bring your next idea to life?</h2>
 
-        <section className="px-6 pb-20">
-          <div className="relative mx-auto max-w-6xl">
-            {/* back layers */}
-            <div className="absolute inset-x-8 top-4 h-full rounded-[32px] border border-white/5 bg-white/[0.02]" />
-            <div className="absolute inset-x-4 top-2 h-full rounded-[32px] border border-white/5 bg-white/[0.03]" />
+            <p className="text-muted mx-auto max-w-2xl">
+              Strategy, design and engineering combined into one streamlined process.
+            </p>
 
-            {/* Main card */}
-            <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.04] px-8 py-10 backdrop-blur-xl md:px-12">
-              {/* ambient glow */}
-              <div className="bg-primary/10 absolute -top-10 -right-10 h-52 w-52 rounded-full blur-[100px]" />
+            <Link
+              href="/contact?focus=form"
+              className="group relative mt-10 inline-flex items-center overflow-hidden rounded-full border border-[#d4b06a]/30 px-8 py-4 text-[#d4b06a] transition-all duration-500 hover:-translate-y-1 hover:scale-[1.02] hover:border-[#d4b06a]/60"
+            >
+              <div className="absolute inset-0 origin-left scale-x-0 bg-[#d4b06a] transition-transform duration-500 ease-out group-hover:scale-x-100" />
 
-              {/* subtle grid */}
-              <div
-                className="absolute inset-0 opacity-[0.03]"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(rgba(255,255,255,.12) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.12) 1px, transparent 1px)",
-                  backgroundSize: "34px 34px",
-                }}
-              />
-
-              <div className="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-                {/* Content */}
-                <div className="max-w-2xl">
-                  <span className="border-primary/20 bg-primary/10 text-primary mb-5 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs">
-                    ● Project Kickoff
-                  </span>
-
-                  <h2 className="text-3xl leading-tight font-bold md:text-4xl">
-                    Ready to bring your next idea to life?
-                  </h2>
-
-                  <p className="mt-4 text-white/60">
-                    Strategy, design and engineering combined into one streamlined process.
-                  </p>
-                </div>
-
-                {/* CTA area */}
-                <div className="flex items-center gap-5">
-                  {/* mini stat */}
-
-                  <button className="group border-primary/30 hover:border-primary relative overflow-hidden rounded-full border px-8 py-4 transition-all duration-500">
-                    <div className="bg-primary absolute inset-0 origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100" />
-
-                    <span className="relative z-10 flex items-center gap-3 group-hover:text-black">
-                      Start Project
-                      <span className="transition-transform duration-500 group-hover:translate-x-1">
-                        →
-                      </span>
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
+              <span className="relative z-10 flex items-center gap-2 transition-colors duration-500 group-hover:text-black">
+                Start a Project
+                <span className="transition-transform duration-500 group-hover:translate-x-1">
+                  →
+                </span>
+              </span>
+            </Link>
           </div>
         </section>
       </main>

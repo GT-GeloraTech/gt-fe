@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "react-phone-number-input/style.css";
 
 :root {
   --background: #2a0f2f;
@@ -217,4 +218,72 @@ section {
   background-size: 4px 4px;
 
   pointer-events: none;
+}
+
+.glass-navbar {
+  background: linear-gradient(to bottom, rgba(42, 15, 47, 0.82), rgba(53, 20, 61, 0.75));
+
+  backdrop-filter: blur(64px) saturate(250%);
+  -webkit-backdrop-filter: blur(64px) saturate(250%);
+
+  border: 1px solid rgba(212, 176, 106, 0.12);
+
+  box-shadow:
+    0 12px 60px rgba(42, 15, 47, 0.45),
+    inset 0 1px 0 rgba(212, 176, 106, 0.08);
+}
+
+.phone-input {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+}
+
+.phone-input .PhoneInputCountry {
+  margin-right: 10px;
+}
+
+.phone-input input {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  color: white;
+  font-size: 15px;
+}
+
+.phone-input input::placeholder {
+  color: rgb(113 113 122);
+}
+
+.phone-input .PhoneInputCountrySelect {
+  background: transparent;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.phone-input .PhoneInputCountryIcon {
+  box-shadow: none;
+}
+
+.PhoneInputCountrySelect {
+  background-color: #2a0f2f;
+  color: white;
+}
+
+.PhoneInputCountrySelect option {
+  background-color: #2a0f2f;
+  color: white;
+}
+
+.PhoneInputInput {
+  background: transparent;
+  color: white;
+}
+
+.PhoneInputInput::placeholder {
+  color: rgb(113 113 122);
 }

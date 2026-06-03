@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export function ProjectsHero() {
   return (
-    <section className="px-6 pt-28 pb-16 md:pt-32 md:pb-20">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6">
       <div className="mx-auto max-w-6xl text-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

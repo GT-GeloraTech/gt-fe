@@ -27,11 +27,15 @@ export function ProjectsCTA() {
           <div className="shrink-0">
             <Link
               href="/contact?focus=form"
-              className="bg-primary hover:bg-primary-dark inline-flex items-center rounded-full px-7 py-3 text-sm font-medium text-black transition-all duration-300 hover:scale-[1.02]"
+              className="group border-primary/30 text-primary hover:border-primary/60 relative inline-flex items-center overflow-hidden rounded-full border px-7 py-3 text-sm font-medium transition-all duration-500 hover:scale-[1.02]"
             >
-              Talk With Us
-              <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">
-                →
+              <div className="bg-primary absolute inset-0 origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100" />
+
+              <span className="relative z-10 flex items-center transition-colors duration-500 group-hover:text-black">
+                Talk With Us
+                <span className="ml-2 transition-transform duration-500 group-hover:translate-x-1">
+                  →
+                </span>
               </span>
             </Link>
           </div>
