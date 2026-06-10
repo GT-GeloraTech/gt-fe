@@ -20,23 +20,38 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       <main className="overflow-hidden">
         {/* HERO */}
 
-        <section className="relative px-6 pt-36 pb-28">
+        {/* HERO */}
+        <section className="relative px-4 pt-28 pb-16 sm:px-6 sm:pt-32 sm:pb-24">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,#7C3AED20,transparent)]" />
 
-          <div className="mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-2">
-            <div>
-              <div className="mb-6 inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm backdrop-blur">
+          <div className="mx-auto grid max-w-7xl items-center gap-10 text-center lg:grid-cols-2 lg:gap-16 lg:text-left">
+            {/* Content */}
+            <div className="flex flex-col items-center lg:items-start">
+              <div className="mb-4 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs backdrop-blur sm:px-4 sm:py-2 sm:text-sm">
                 Premium Service
               </div>
 
-              <h1 className="mb-6 text-6xl leading-tight font-bold md:text-7xl">{service.title}</h1>
+              <h1 className="mb-5 text-4xl leading-tight font-bold sm:text-5xl md:text-6xl lg:text-7xl">
+                {service.title}
+              </h1>
 
-              <p className="text-muted text-xl leading-9">{service.subtitle}</p>
+              <p className="text-muted max-w-2xl text-base leading-7 sm:text-lg sm:leading-8 md:text-xl md:leading-9">
+                {service.subtitle}
+              </p>
             </div>
 
-            <div className="glass-card border-primary/10 rounded-[40px] border p-8">
-              <div className="relative h-[450px] overflow-hidden rounded-4xl">
-                <Image src={service.heroImage} alt={service.title} fill className="object-cover" />
+            {/* Image */}
+            <div className="mx-auto w-full max-w-xl lg:max-w-none">
+              <div className="glass-card border-primary/10 rounded-[24px] border p-4 sm:rounded-[32px] sm:p-6 lg:rounded-[40px] lg:p-8">
+                <div className="relative h-[250px] overflow-hidden rounded-3xl sm:h-[350px] lg:h-[450px]">
+                  <Image
+                    src={service.heroImage}
+                    alt={service.title}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -63,20 +78,23 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
         {/* ABOUT */}
 
-        <section className="mx-auto max-w-7xl px-6 py-24">
-          <div className="grid gap-16 lg:grid-cols-2">
-            <div>
-              <p className="text-primary mb-5">Overview</p>
+        <section className="mx-auto max-w-7xl px-4 py-16 text-center sm:px-6 sm:py-20 lg:px-6 lg:py-24 lg:text-left">
+          <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
+            <div className="flex flex-col items-center lg:items-start">
+              <p className="text-primary mb-4">Overview</p>
 
-              <h2 className="mb-6 text-5xl font-semibold">Designed for scale.</h2>
+              <h2 className="mb-6 text-3xl font-semibold sm:text-4xl lg:text-5xl">
+                Designed for scale.
+              </h2>
             </div>
 
-            <div>
-              <p className="text-muted text-lg leading-9">{service.description}</p>
+            <div className="flex items-center justify-center lg:justify-start">
+              <p className="text-muted max-w-2xl text-base leading-8 sm:text-lg sm:leading-9">
+                {service.description}
+              </p>
             </div>
           </div>
         </section>
-
         {/* FEATURES */}
 
         <section className="relative overflow-hidden px-6 py-15">

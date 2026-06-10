@@ -2,18 +2,19 @@ import Image from "next/image";
 
 export function AboutIntro() {
   return (
-    <section className="px-6 pt-10 pb-20 sm:pt-14 sm:pb-28">
+    <section className="px-4 pt-10 pb-16 sm:px-6 sm:pt-14 sm:pb-24">
       <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
-        <div className="max-w-2xl">
-          <p className="text-primary mb-4 text-sm font-medium tracking-[0.2em] uppercase">
+        {/* Content */}
+        <div className="mx-auto max-w-2xl text-center lg:mx-0 lg:text-left">
+          <p className="text-primary mb-4 text-xs font-medium tracking-[0.2em] uppercase sm:text-sm">
             About Gelora Tech
           </p>
 
-          <h2 className="text-4xl leading-tight font-semibold tracking-[-0.04em] md:text-6xl">
+          <h2 className="text-3xl leading-tight font-semibold tracking-[-0.04em] sm:text-5xl md:text-6xl">
             Building software businesses can depend on
           </h2>
 
-          <div className="text-muted mt-10 space-y-7 text-lg leading-9">
+          <div className="text-muted mt-8 space-y-6 text-base leading-8 sm:text-lg sm:leading-9">
             <p>
               At Gelora Tech, we believe software should solve problems, simplify operations, and
               support growth — not create unnecessary complexity.
@@ -40,17 +41,19 @@ export function AboutIntro() {
           </div>
         </div>
 
-        <div className="relative">
-          <div className="overflow-hidden rounded-[36px] border border-white/10 bg-white/[0.02]">
+        {/* Images */}
+        <div className="relative mx-auto w-full max-w-xl">
+          <div className="overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.02] sm:rounded-[36px]">
             <Image
               src="/about-team.jpg"
               alt="Gelora team collaboration"
               width={900}
               height={700}
-              className="h-[500px] w-full object-cover"
+              className="h-[280px] w-full object-cover sm:h-[400px] lg:h-[500px]"
             />
           </div>
 
+          {/* Floating Image - Desktop Only */}
           <div className="absolute -bottom-10 -left-10 hidden w-[260px] overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.03] shadow-2xl lg:block">
             <Image
               src="/about-workflow.jpg"

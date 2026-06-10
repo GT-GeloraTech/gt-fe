@@ -287,3 +287,25 @@ section {
 .PhoneInputInput::placeholder {
   color: rgb(113 113 122);
 }
+
+.phone-input {
+  height: 56px;
+}
+
+.phone-input .PhoneInputInput {
+  width: 100%;
+  height: 56px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #000;
+  font-size: 16px;
+}
+
+.phone-input .PhoneInputInput::placeholder {
+  color: #9ca3af;
+}
+
+.phone-input .PhoneInputCountry {
+  margin-right: 12px;
+}
