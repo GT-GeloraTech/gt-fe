@@ -25,17 +25,17 @@ import { services } from "@/app/service/data";
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-[#d4b06a]/10 bg-[#2a0f2f] py-10">
+    <footer className="relative overflow-hidden border-t border-[#d4b06a]/10 bg-[#2a0f2f] py-8 md:py-10">
       {/* Background Glow */}
       <div className="pointer-events-none absolute top-0 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-[#d4b06a]/5 blur-3xl" />
 
       <Container className="relative z-10 max-w-[1300px]">
         {/* Top Grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 text-center sm:grid-cols-2 sm:text-left lg:grid-cols-5">
           {/* Brand */}
           <Reveal>
-            <div>
-              <div className="flex items-center gap-4">
+            <div className="text-center sm:text-left">
+              <div className="flex flex-col items-center sm:items-start">
                 <motion.div
                   whileHover={{
                     scale: 1.03,
@@ -54,7 +54,7 @@ export function Footer() {
                       width={175}
                       height={175}
                       priority
-                      className="object-contain"
+                      className="h-auto w-[140px] object-contain sm:w-[160px] md:w-[175px]"
                     />
                   </div>
                 </motion.div>
@@ -65,7 +65,7 @@ export function Footer() {
               </p>
 
               {/* Social */}
-              <div className="mt-5 flex items-center gap-3">
+              <div className="mt-5 flex justify-center gap-3 sm:justify-start">
                 {[
                   {
                     icon: Instagram,
@@ -115,10 +115,10 @@ export function Footer() {
 
           {/* Quick Links */}
           <Reveal delay={0.1}>
-            <div>
+            <div className="flex flex-col items-center sm:items-start">
               <h4 className="text-[17px] font-bold text-white">Quick Links</h4>
 
-              <div className="mt-5 flex flex-col gap-3">
+              <div className="mt-5 flex flex-col items-center gap-3 sm:items-start">
                 {navigation.map((item, index) => (
                   <motion.div
                     key={item.label}
@@ -152,10 +152,10 @@ export function Footer() {
 
           {/* Services */}
           <Reveal delay={0.2}>
-            <div>
+            <div className="flex flex-col items-center sm:items-start">
               <h4 className="text-[17px] font-bold text-white">Services</h4>
 
-              <div className="mt-5 flex flex-col gap-3">
+              <div className="mt-5 flex flex-col items-center gap-3 sm:items-start">
                 {Object.values(services).map((service, index) => (
                   <motion.div
                     key={service.slug}
@@ -186,11 +186,55 @@ export function Footer() {
               </div>
             </div>
           </Reveal>
+          {/* Legal */}
+          <Reveal delay={0.25}>
+            <div className="flex flex-col items-center sm:items-start">
+              <h4 className="text-[17px] font-bold text-white">Legal</h4>
+              <div className="mt-5 flex flex-col items-center gap-3 sm:items-start">
+                {[
+                  {
+                    label: "Privacy Policy",
+                    href: "/privacy",
+                  },
+                  {
+                    label: "Terms & Conditions",
+                    href: "/terms",
+                  },
+                ].map((item, index) => (
+                  <motion.div
+                    key={item.label}
+                    initial={{
+                      opacity: 0,
+                      x: -10,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      x: 0,
+                    }}
+                    viewport={{
+                      once: true,
+                    }}
+                    transition={{
+                      duration: 0.5,
+                      delay: index * 0.05,
+                    }}
+                  >
+                    <Link
+                      href={item.href}
+                      className="text-[15px] text-zinc-400 transition-all duration-300 hover:translate-x-1 hover:text-[#d4b06a]"
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
 
           {/* Contact */}
           {/* Contact */}
           <Reveal delay={0.3}>
-            <div>
+            <div className="text-center sm:text-left">
               <h4 className="text-[17px] font-semibold text-white">Contact Us</h4>
 
               <div className="mt-6 space-y-4">
@@ -227,17 +271,17 @@ export function Footer() {
                         duration: 0.45,
                         delay: index * 0.06,
                       }}
-                      className="flex items-center gap-3"
+                      className="flex items-center justify-center gap-3 sm:justify-start"
                     >
                       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#d4b06a]/15 bg-[#3a173f]/50 text-[#d4b06a]">
                         <Icon className="h-4 w-4" />
                       </div>
 
-                      <div>
+                      <div className="min-w-0 text-left">
                         {item.href ? (
                           <a
                             href={item.href}
-                            className="text-[14px] text-zinc-400 transition-colors duration-300 hover:text-[#d4b06a]"
+                            className="block text-[14px] break-words text-zinc-400 transition-colors duration-300 hover:text-[#d4b06a]"
                           >
                             {item.content}
                           </a>
@@ -255,42 +299,8 @@ export function Footer() {
 
         {/* Bottom */}
         <Reveal delay={0.4}>
-          <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-[#d4b06a]/10 pt-5 lg:flex-row">
+          <div className="mt-8 flex flex-col items-center justify-center gap-2 border-t border-[#d4b06a]/10 pt-5 text-center">
             <p className="text-[14px] text-zinc-500">© 2026 Gelora Tech. All rights reserved.</p>
-
-            <div className="flex items-center gap-5">
-              {[
-                {
-                  label: "Privacy Policy",
-                  href: "/privacy",
-                },
-                {
-                  label: "Terms & Conditions",
-                  href: "/terms",
-                },
-                // {
-                //   label: "Cookie Policy",
-                //   href: "/cookie",
-                // },
-              ].map((item) => (
-                <motion.div
-                  key={item.label}
-                  whileHover={{
-                    y: -1,
-                  }}
-                  transition={{
-                    duration: 0.2,
-                  }}
-                >
-                  <Link
-                    href={item.href}
-                    className="text-[14px] text-zinc-500 transition-colors duration-300 hover:text-[#d4b06a]"
-                  >
-                    {item.label}
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
           </div>
         </Reveal>
       </Container>
